@@ -1,0 +1,221 @@
+# Author: Daniel Shevelev
+# Purpose: Create and run a classic game of snake in assembly
+
+###############################################################
+### 			BITMAP SETTINGS			    ###	
+###							    ###
+###	Unit Width in pixels: 8 			    ###
+###	Unit Heigh in Pixels: 8				    ###
+###	Display Width in Pixels: 512			    ###
+###	Display Height in Pixels: 256  			    ###
+###	Base address for display 0x10010000 (static data)   ###
+###							    ###	
+###############################################################
+
+.eqv	SHIFT_NEXT_ROW		256						# next row shift = width*4 = 64*4
+.globl BLUE
+.globl GREEN
+.globl RED
+.globl YELLOW
+
+.data
+
+frameBuffer: 	.space 	0x80000		#512 wide x 256 high pixels
+xVel:		.word	0		# x velocity start 0
+yVel:		.word	0		# y velocity start 0
+xPos:		.word	50		# x position
+yPos:		.word	27		# y position
+tail:		.word	4200		# location of rail on bit map display
+appleX:		.word	32		# apple x position
+appleY:		.word	16		# apple y position
+snakeUp:	.word	0x0000ff00	# green pixel for when snaking moving up
+snakeDown:	.word	0x0100ff00	# green pixel for when snaking moving down
+snakeLeft:	.word	0x0200ff00	# green pixel for when snaking moving left
+snakeRight:	.word	0x0300ff00	# green pixel for when snaking moving right
+xConversion:	.word	64		# x value for converting xPos to bitmap display
+yConversion:	.word	4		# y value for converting (x, y) to bitmap display
+BLUE:
+    .word 0xADD8E6
+GREEN:
+    .word 0xFFFFFF
+RED:
+    .word 0xFF0000
+YELLOW:
+    .word 0xFFFF00
+HEALTH_GREEN:
+    .word 0x00FF00
+
+.text
+main:
+
+### DRAW BACKGROUND SECTION
+
+	la 	$t0, frameBuffer	# load frame buffer addres
+	li 	$t1, 8192		# save 512*256 pixels
+	li 	$t2, 0x0000008B		# load light gray color
+l1:
+	sw   	$t2, 0($t0)
+	addi 	$t0, $t0, 4 	# advance to next pixel position in display
+	addi 	$t1, $t1, -1	# decrement number of pixels
+	bnez 	$t1, l1		# repeat while number of pixels is not zero
+	
+### DRAW BORDER SECTION
+	
+	# top wall section
+	la	$t0, frameBuffer	# load frame buffer addres
+	addi	$t1, $zero, 64		# t1 = 64 length of row
+	li 	$t2, 0xFF7F00FF		# load black color
+drawBorderTop:
+	sw	$t2, 0($t0)		# color Pixel black
+	addi	$t0, $t0, 4		# go to next pixel
+	addi	$t1, $t1, -1		# decrease pixel count
+	bnez	$t1, drawBorderTop	# repeat unitl pixel count == 0
+	
+	# Bottom wall section
+	la	$t0, frameBuffer	# load frame buffer addres
+	addi	$t0, $t0, 7936		# set pixel to be near the bottom left
+	addi	$t1, $zero, 64		# t1 = 512 length of row
+
+drawBorderBot:
+	sw	$t2, 0($t0)		# color Pixel black
+	addi	$t0, $t0, 4		# go to next pixel
+	addi	$t1, $t1, -1		# decrease pixel count
+	bnez	$t1, drawBorderBot	# repeat unitl pixel count == 0
+	
+	# left wall section
+	la	$t0, frameBuffer	# load frame buffer address
+	addi	$t1, $zero, 256		# t1 = 512 length of col
+
+drawBorderLeft:
+	sw	$t2, 0($t0)		# color Pixel black
+	addi	$t0, $t0, 256		# go to next pixel
+	addi	$t1, $t1, -1		# decrease pixel count
+	bnez	$t1, drawBorderLeft	# repeat unitl pixel count == 0
+	
+	# Right wall section
+	la	$t0, frameBuffer	# load frame buffer address
+	addi	$t0, $t0, 508		# make starting pixel top right
+	addi	$t1, $zero, 255		# t1 = 512 length of col    
+    
+drawBorderRight:
+	sw	$t2, 0($t0)		# color Pixel black
+	addi	$t0, $t0, 256		# go to next pixel
+	addi	$t1, $t1, -1		# decrease pixel count
+	bnez	$t1, drawBorderRight	# repeat unitl pixel count == 0
+	# Define some color values
+	# Draw initial snake section with colors
+
+gameUpdateLoop:
+
+	lw	$t3, 0xffff0004		# get keypress from keyboard input
+	
+	### Sleep for 66 ms so frame rate is about 15
+	addi	$v0, $zero, 32	# syscall sleep
+	addi	$a0, $zero, 66	# 66 ms
+	syscall
+	
+	beq	$t3, 100, moveRight	# if key press = 'd' branch to moveright
+	beq	$t3, 97, moveLeft	# else if key press = 'a' branch to moveLeft
+	beq	$t3, 119, moveUp	# if key press = 'w' branch to moveUp
+	beq	$t3, 115, moveDown	# else if key press = 's' branch to moveDown
+	beq	$t3, 0, moveUp		# start game moving up
+
+moveUp:
+# Move snake up
+lw $t0, yPos
+addi $t0, $t0, -1
+sw $t0, yPos
+
+moveDown:
+# Move snake down
+lw $t0, yPos
+addi $t0, $t0, 1
+sw $t0, yPos
+
+moveLeft:
+# Move snake left
+lw $t0, xPos
+addi $t0, $t0, -1
+sw $t0, xPos
+
+moveRight:
+# Move snake right
+lw $t0, xPos
+addi $t0, $t0, 1
+sw $t0, xPos
+	
+drawHealthBar:
+    la $t0, frameBuffer   # load frame buffer address
+    li $t1, 64            # set pixel count to width of the bitmap
+    lw $t2, HEALTH_GREEN  # load the value of the new green color
+    addi $t0, $t0, 256    # go to next pixel
+
+loop:
+    sw $t2, 4($t0)        # color pixel green
+    addi $t0, $t0, 4      # go to next pixel
+    addi $t1, $t1, -2     # decrease pixel count
+    bnez $t1, loop        # repeat until pixel count == 0
+
+    j done                # jump to the end of the function
+
+done:
+    jal Character_drwaing   # call drawBorderRight function
+    jr $ra                # return from the function
+    
+Character_drwaing:
+	la	$t0, frameBuffer	# load frame buffer address
+	lw	$s2, tail		# s2 = tail of snake
+	lw	$s3, snakeUp		# s3 = direction of snake
+	lw  	$t2, GREEN         # load the value of the GREEN color
+	lw  	$t3, BLUE         # load the value of the GREEN color
+	lw  	$t4, RED         # load the value of the GREEN color
+	lw  	$t5, YELLOW         # load the value of the GREEN color
+
+	add	$t1, $s2, $t0		# t1 = tail start on bit map display
+	sw	$t4, 0($t1)		# draw pixel where snake is
+	sw	$t4, 4($t1)		# draw pixel where snake is
+	sw	$t4, -4($t1)		# draw pixel where snake is
+	addi	$t1, $t1, -256		# set t1 to pixel above
+	sw	$t3, 0($t1)		# draw pixel where snake currently is
+	sw	$t2, 4($t1)		# draw pixel where snake is
+	sw	$t2, 8($t1)		# draw pixel where snake is
+	sw	$t2, 12($t1)		# draw pixel where snake is
+	addi	$t1, $t1, -256		# set t1 to pixel above
+	sw	$t2, 4($t1)		# draw pixel where snake is
+	sw	$t2, 12($t1)		# draw pixel where snake is
+	sw	$t4, 16($t1)		# draw pixel where snake is
+	addi	$t1, $t1, -256		# set t1 to pixel above
+	sw	$t3, 0($t1)		# draw pixel where snake currently is
+	sw	$t2, 4($t1)		# draw pixel where snake is
+	sw	$t2, 8($t1)		# draw pixel where snake is
+	sw	$t2, 12($t1)		# draw pixel where snake is
+	addi	$t1, $t1, -256		# set t1 to pixel above
+	sw	$t4, 0($t1)		# draw pixel where snake currently isrently is
+	sw	$t4, 4($t1)		# draw pixel where snake is
+	sw	$t4, -4($t1)		# draw pixel where snake is
+
+	#addi	$t1, $t1, -256		# set t1 to pixel above
+	#sw	$s3, 0($t1)		# draw pixel where snake currently is
+	
+	### draw initial apple
+# draw S
+	# $a0: position
+	# $a1: colour
+
+# This is the update function for game
+# psudeocode
+# input = get user input
+# if input == w { moveUp();}
+# if input == s { moveDown();}	
+# if input == a { moveLeft();}	
+# if input == d { moveRigth();}	
+### each move method has similar code
+# moveDirection () {
+#	dir = direction of snake
+#	updateSnake(dir)
+#	updateSnakeHeadPosition()
+#	go back to beginning of update fucntion
+# } 	
+# Registers:
+# t3 = key press input
+# s3 = direction of the snake
