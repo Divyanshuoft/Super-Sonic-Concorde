@@ -6,6 +6,24 @@
 tone: .byte 7      # Tone frequency
 duration: .word 2000  # Tone duration (500 ms)
 hello_world: .asciiz "Hello world\n"  # the string to print
+message_up: .asciiz "Moving up\n"
+message_down: .asciiz "Moving down\n"
+message_left: .asciiz "Moving left\n"
+message_right: .asciiz "Moving right\n"
+key_pressed: .word 0
+prompt: .asciiz "Press 's' to start the program: "
+input:  .space 1
+frameBuffer:    .space  0x200    # 64 wide x 64 high pixels
+HEALTH_GREEN:   .word   0x00FF00
+BLACK: .word 0x00000000
+RED: .word 0xFF0000
+LIGHT_BLUE: .word 0xADD8E6
+DARK_BLUE: .word 0x00008B
+PURPLE: .word 0x800080
+BROWN: .word 0xA52A2A
+SKIN_COLOR: .word 0xFFDAB9
+x: .word 32
+y: .word 32
 game_over:             .word
 
 	0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00353535, 0x00313131, 0x00353535, 0x00353535, 0x00353535, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00353535, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00353535, 0x00313131, 0x00353535, 0x00353535, 0x00353535, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00353535, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00353535, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00353535, 0x00353535, 0x00353535, 0x00313131, 0x00313131, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00313131, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00353535, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00353535, 0x00353535, 0x00353535, 0x00313131, 0x00313131, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00313131, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00353535, 0x00313131, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00575757, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00575757, 0x00313131, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00353535, 0x00313131, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00575757, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00575757, 0x00313131, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00353535, 0x00353535, 0x00353535, 0x00353535, 0x00313131, 0x00575757, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00575757, 0x00575757, 0x00353535, 0x00313131, 0x00353535, 0x00353535, 0x00353535, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00575757, 0x00313131, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00353535, 0x00353535, 0x00353535, 0x00353535, 0x00353535, 0x00353535, 0x00313131, 0x00575757, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00575757, 0x00575757, 0x00353535, 0x00313131, 0x00353535, 0x00353535, 0x00353535, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00575757, 0x00313131, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00353535, 0x00353535, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00353535, 0x00353535, 0x00353535, 0x00353535, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00353535, 0x00353535, 0x00353535, 0x00353535, 0x00313131, 0x00313131, 0x00575757, 0x00575757, 0x00575757, 0x00353535, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00ed1c24, 0x00404040, 0x00353535, 0x00313131, 0x00313131, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00313131, 0x00313131, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00353535, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00353535, 0x00404040, 0x00353535, 0x00313131, 0x00313131, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00313131, 0x00313131, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 0x00ed1c24, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00313131, 0x00575757, 0x00404040, 0x00404040, 0x00353535, 0x00313131, 0x00313131, 0x00313131, 0x00575757, 0x00575757, 0x00313131, 0x00ed1c24, 0x00353535, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00404040, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00313131, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00353535, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00575757, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00404040, 0x00404040, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00313131, 0x00ed1c24, 0x00575757, 0x00313131, 0x00313131, 0x00ed1c24, 0x00313131, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00404040, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00313131, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00ed1c24, 0x00353535, 0x00ed1c24, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00575757, 0x00404040, 0x00404040, 0x00353535, 0x00313131, 0x00313131, 0x00575757, 0x00575757, 0x00404040, 0x00404040, 0x00575757, 0x00ed1c24, 0x00313131, 0x00ed1c24, 0x00404040, 0x00404040, 0x00ed1c24, 0x00404040, 0x00ed1c24, 0x00404040, 0x00404040, 0x00ed1c24, 0x00313131, 0x00ed1c24, 0x00404040, 0x00313131, 0x00313131, 0x00ed1c24, 0x00313131, 0x00353535, 0x00404040, 0x00ed1c24, 0x00404040, 0x00404040, 0x00404040, 0x00353535, 0x00ed1c24, 0x00313131, 0x00575757, 0x00575757, 0x00ed1c24, 0x00ed1c24, 0x00575757, 0x00313131, 0x00ed1c24, 0x00575757, 0x00404040, 0x00ed1c24, 0x00404040, 0x00404040, 0x00ed1c24, 0x00404040, 0x00404040, 0x00575757, 0x00ed1c24, 0x00313131, 0x00313131, 0x00ed1c24, 0x00313131, 0x00ed1c24, 0x00313131, 0x00353535, 0x00404040, 0x00404040, 0x00404040, 0x00404040, 
@@ -69,6 +87,354 @@ main:
     j draw_game_start
     j exit          # otherwise, exit
 
+# Loop until user presses enter
+loop:
+	lw $t0, 0xffff0004	# get keypress from keyboard input
+	
+	# Sleep for 66 ms so frame rate is about 15
+	addi $v0, $zero, 32	# syscall sleep
+	addi $a0, $zero, 66	# 66 ms
+	syscall
+	
+	# Check which key was pressed
+	beq $t0, 0xA, exit	# exit loop if enter was pressed
+	
+	# Check if key has been pressed already
+	lw $t1, key_pressed
+	beq $t1, 1, loop	# if key has been pressed, loop again
+	
+	# Set key_pressed flag to 1
+	sw $t1, key_pressed
+	
+	beq $t0, 0x77, move_up	# 'w' pressed, move up
+	beq $t0, 0x73, move_down	# 's' pressed, move down
+	beq $t0, 0x64, move_right	# 'd' pressed, move right
+	beq $t0, 0x61, move_left	# 'a' pressed, move left
+	
+	# Set $t0 to space key
+	addi $t0, $zero, 0x20
+	
+	j loop			# otherwise, loop again
+	
+# Move up
+move_up:
+	li $v0, 4		# syscall to print string
+	la $a0, message_up	# load message string into $a0
+	syscall
+	lw $t0, x      # Load the current value of x into $t0
+    	lw $t1, y      # Load the current value of y into $t1
+    	
+    	addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    	sw $t0, x             # Store the new value of x
+	sw $t1, y             # Store the new value of y
+	
+	j drawing_function
+	j exit_moving		# exit move function
+# Move down
+move_down:
+	li $v0, 4		# syscall to print string
+	la $a0, message_down	# load message string into $a0
+	syscall
+	
+	lw $t0, x      # Load the current value of x into $t0
+    	lw $t1, y      # Load the current value of y into $t1
+    	
+    	addi $t1, $t1, 1     # Decrease the value of y by 1
+    	
+    	sw $t0, x             # Store the new value of x
+	sw $t1, y             # Store the new value of y
+	
+	j drawing_function
+	j exit_moving		# exit move function
+	
+# Move right
+move_right:
+	li $v0, 4		# syscall to print string
+	la $a0, message_right	# load message string into $a0
+	syscall
+	
+	lw $t0, x      # Load the current value of x into $t0
+    	lw $t1, y      # Load the current value of y into $t1
+    	
+    	addi $t0, $t0, 1     # Decrease the value of y by 1
+    	
+    	sw $t0, x             # Store the new value of x
+	sw $t1, y             # Store the new value of y
+	
+    	j drawing_function
+	j exit_moving		# exit move function
+	
+# Move left
+move_left:
+	li $v0, 4		# syscall to print string
+	la $a0, message_left	# load message string into $a
+	syscall
+	
+	lw $t0, x      # Load the current value of x into $t0
+    	lw $t1, y      # Load the current value of y into $t1
+    	
+    	addi $t0, $t0, -1     # Decrease the value of y by 1
+    	
+    	sw $t0, x             # Store the new value of x
+	sw $t1, y             # Store the new value of y
+	
+	j drawing_function
+	j exit_moving		# exit move function
+
+# Exit move function and return to game update loop
+exit_moving:
+	# Set $t0 to space key
+	addi $t0, $zero, 0x20
+	sw $zero, key_pressed	# reset key_pressed flag to 0
+	j loop			# loop back to beginning
+
+drawing_function:
+    lw $t0, x      # Set x to 10
+    lw $t1, y      # Set y to 20
+    
+    # Push the values of x and y onto the stack
+    addi $sp, $sp, -8   # Decrement stack pointer by 8 bytes
+    sw $t0, 0($sp)      # Store the value of x at the top of the stack
+    sw $t1, 4($sp)      # Store the value of y after x on the stack
+    
+    # Call the function with the values of x and y as arguments
+    jal draw_character #link  
+    j exit_moving # exit move function
+
+# Define the exit label
+exit:
+    li $v0, 10      # Set system call 10 (exit)
+    syscall         # Terminate the program
+
+draw_pixel:
+    addi $sp, $sp, -8    # allocate space on the stack for the return address and saved $gp value
+    sw $ra, 4($sp)       # save the return address on the stack
+    sw $gp, 0($sp)       # save the $gp value on the stack
+
+    # calculate the memory address of the pixel
+    li $t0, 256         # width of bitmap
+    mul $a0, $a0, 4     # multiply x coordinate by 4 (each pixel is 4 bytes)
+    mul $a1, $a1, $t0   # multiply y coordinate by width
+    add $a0, $a0, $a1   # add the x and y offsets
+    add $a0, $gp, $a0   # add the base address of the bitmap
+
+    sw $a2, 0($a0)       # store the color value at the calculated memory address
+
+    lw $gp, 0($sp)       # restore the $gp value from the stack
+    lw $ra, 4($sp)       # restore the return address from the stack
+    addi $sp, $sp, 8     # deallocate space on the stack
+    jr $ra               # return to the caller
+draw_character:
+    # Retrieve the input arguments from the stack
+    lw $s0, 0($sp)      # Load the value of x from the top of the stack
+    lw $s1, 4($sp)      # Load the value of y after x on the stack
+    
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_BLUE       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_BLUE       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, +2
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_BLUE      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    addi $s1, $s1, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_BLUE       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_BLUE      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, +2
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_BLUE      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    addi $s1, $s1, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_BLUE       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_BLUE      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, +2
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_BLUE      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    #NECK
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    addi $s1, $s1, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, SKIN_COLOR       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    #FACE
+    # increment the x coordinate by 1
+    addi $s1, $s1, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, SKIN_COLOR       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, SKIN_COLOR      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, +2
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, SKIN_COLOR      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    #HAIR
+    # increment the x coordinate by 1
+    addi $s1, $s1, -1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BROWN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BROWN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, +2
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BROWN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    #complete torso
+    # increment the x coordinate by 1
+    addi $s1, $s1, +6
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_BLUE       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_BLUE      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, +2
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_BLUE      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    #leg1
+    # increment the x coordinate by 1
+    addi $s1, $s1, +1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, LIGHT_BLUE      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, +2
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, LIGHT_BLUE      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    #leg2
+    # increment the x coordinate by 1
+    addi $s1, $s1, +1
+    addi $s0, $s0, -1
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, LIGHT_BLUE      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, +2
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, LIGHT_BLUE      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel 
+    
+    #boots
+    # increment the x coordinate by 1
+    addi $s1, $s1, +1
+    addi $s0, $s0, -1
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, PURPLE      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, +2
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, PURPLE      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel
+    j exit_moving		# exit move function
+
+start:
+    # set up the bitmap display
+    addi $gp, $zero, 0x10008000 # set $gp to the base address of the bitmap display
+
+end:
+# end of program
+li $v0, 10 # set $v0 to 10 for exit syscall
+syscall # terminate the program
+
 draw_game_start:        li $t0, BASE_ADDRESS        # $t0 stores base address
             la $t1,bgwithplane        # $t1 stores address of game_over
             li $t2, 0            # $t2 stores counter
@@ -110,7 +476,7 @@ draw_game:        li $t0, BASE_ADDRESS        # $t0 stores base address
             li $t2, 0            # $t2 stores counter
             li $t3, NUM_UNITS        # $t3 stores total units
 
-loop_game:        bge $t2, $t3, draw_char
+loop_game:        bge $t2, $t3, loop
             sll $t4, $t2, 2            # calculate offset
             add $t5, $t1, $t4        # $t5 stores address of color for current unit
             lw $t5, 0($t5)            # $t5 stores color of current unit
@@ -119,31 +485,9 @@ loop_game:        bge $t2, $t3, draw_char
             addi $t2, $t2, 1        # increment counter
             j loop_game
             
-draw_char:        li $t0, BASE_ADDRESS        # $t0 stores base address
-    la $a0, tone
-    lw $a1, duration
-    li $v0, 33
-    syscall
-    la $t1, character        # $t1 stores address of game_over
-    li $t2, 0            # $t2 stores counter
-    li $t3, NUM_UNITS        # $t3 stores total units
-
-loop_game_char:        bge $t2, $t3, exit_game_over
-            sll $t4, $t2, 2            # calculate offset
-            add $t5, $t1, $t4        # $t5 stores address of color for current unit
-            lw $t5, 0($t5)            # $t5 stores color of current unit
-            add $t4, $t4, $t0        # $t4 stores address of current unit
-            sw $t5, 0($t4)            # paint unit black
-            addi $t2, $t2, 1        # increment counter
-            j loop_game_char
-            
 exit_game_over:        
 
     li $v0, 4                   # syscall to print string
     la $a0, hello_world         # load address of the string
     syscall
     j exit
-
-exit:
-    li $v0, 10
-    syscall
