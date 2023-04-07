@@ -1590,7 +1590,7 @@ draw_game:        li $t0, BASE_ADDRESS        # $t0 stores base address
     lw $a1, duration2
     li $v0, 33
     syscall
-            la $t1, level3        # $t1 stores address of game_over
+            la $t1, background        # $t1 stores address of game_over
             li $t2, 0            # $t2 stores counter
             li $t3, NUM_UNITS        # $t3 stores total units
 
