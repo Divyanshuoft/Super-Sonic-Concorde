@@ -54,7 +54,7 @@ cy1: .word 15
 gx1: .word 15
 gy1: .word 5
 x: .word 5
-y: .word 58
+y: .word 52
 level: .word 1
 game_over:             .word
 
@@ -193,7 +193,7 @@ loop:
 	beq $t0, 0x73, move_down	# 's' pressed, move down
 	beq $t0, 0x64, move_right	# 'd' pressed, move right
 	beq $t0, 0x61, move_left	# 'a' pressed, move left
-	
+		j drawing_function
 	# Set $t0 to space key
 	addi $t0, $zero, 0x20
 	
