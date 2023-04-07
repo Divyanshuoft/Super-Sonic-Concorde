@@ -22,6 +22,12 @@ DARK_BLUE: .word 0x00008B
 PURPLE: .word 0x800080
 BROWN: .word 0xA52A2A
 SKIN_COLOR: .word 0xFFDAB9
+lx1: .word 62
+ly1: .word 59
+lx3: .word 50
+ly3: .word 59
+lx2: .word 56
+ly2: .word 59
 x: .word 32
 y: .word 32
 game_over:             .word
@@ -181,6 +187,319 @@ move_left:
 	
 	j drawing_function
 	j exit_moving		# exit move function
+
+draw_live1:
+
+# Retrieve the input arguments from the stack
+lw $s0, lx1      # Load the value of x from the top of the stack
+lw $s1, ly1      # Load the value of y after x on the stack
+
+# draw the left half of the heart
+addi $s1, $s1, -1       # subtract 1 from y coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -2       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 4       # subtract 1 from x coordinate
+addi $s1, $s1, 1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 4       # subtract 1 from x coordinate
+addi $s1, $s1, 1       # subtract 1 from x coordinat
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 3       # subtract 1 from x coordinate
+addi $s1, $s1, 1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 1       # subtract 1 from x coordinate
+addi $s1, $s1, 1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+j draw_live2
+
+# Loop over the three live cells
+draw_lives:
+j draw_live1
+    
+draw_live2:
+
+# Retrieve the input arguments from the stack
+lw $s0, lx2      # Load the value of x from the top of the stack
+lw $s1, ly2      # Load the value of y after x on the stack
+
+# draw the left half of the heart
+addi $s1, $s1, -1       # subtract 1 from y coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -2       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 4       # subtract 1 from x coordinate
+addi $s1, $s1, 1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 4       # subtract 1 from x coordinate
+addi $s1, $s1, 1       # subtract 1 from x coordinat
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 3       # subtract 1 from x coordinate
+addi $s1, $s1, 1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 1       # subtract 1 from x coordinate
+addi $s1, $s1, 1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+j draw_live3
+    
+draw_live3:
+
+# Retrieve the input arguments from the stack
+lw $s0, lx3      # Load the value of x from the top of the stack
+lw $s1, ly3      # Load the value of y after x on the stack
+
+# draw the left half of the heart
+addi $s1, $s1, -1       # subtract 1 from y coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -2       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 4       # subtract 1 from x coordinate
+addi $s1, $s1, 1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 4       # subtract 1 from x coordinate
+addi $s1, $s1, 1       # subtract 1 from x coordinat
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 3       # subtract 1 from x coordinate
+addi $s1, $s1, 1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 1       # subtract 1 from x coordinate
+addi $s1, $s1, 1       # subtract 1 from x coordinate
+lw $a2, RED       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+j loop
 
 # Exit move function and return to game update loop
 exit_moving:
@@ -459,6 +778,8 @@ draw_game_over:        li $t0, BASE_ADDRESS        # $t0 stores base address
             li $t3, NUM_UNITS        # $t3 stores total units
 
 loop_game_over:        bge $t2, $t3, draw_game
+	    lw $t7, 0xffff0004	# get keypress from keyboard input
+	    beq $t7, 0xA, exit	# exit loop if enter was pressed
             sll $t4, $t2, 2            # calculate offset
             add $t5, $t1, $t4        # $t5 stores address of color for current unit
             lw $t5, 0($t5)            # $t5 stores color of current unit
@@ -476,7 +797,7 @@ draw_game:        li $t0, BASE_ADDRESS        # $t0 stores base address
             li $t2, 0            # $t2 stores counter
             li $t3, NUM_UNITS        # $t3 stores total units
 
-loop_game:        bge $t2, $t3, loop
+loop_game:        bge $t2, $t3, draw_lives
             sll $t4, $t2, 2            # calculate offset
             add $t5, $t1, $t4        # $t5 stores address of color for current unit
             lw $t5, 0($t5)            # $t5 stores color of current unit
