@@ -15,20 +15,33 @@ key_pressed: .word 0
 prompt: .asciiz "Press 's' to start the program: "
 input:  .space 1
 frameBuffer:    .space  0x200    # 64 wide x 64 high pixels
-HEALTH_GREEN:   .word   0x00FF00
-BLACK: .word 0x00000000
-RED: .word 0xFF0000
-LIGHT_BLUE: .word 0xADD8E6
-DARK_BLUE: .word 0x00008B
-PURPLE: .word 0x800080
-BROWN: .word 0xA52A2A
+HEALTH_GREEN:    .word   0x00FF00
+BLACK:           .word   0x00000000
+RED:             .word   0xFF0000
+LIGHT_BLUE:      .word   0xADD8E6
+DARK_BLUE:       .word   0x00008B
+PURPLE:          .word   0x800080
+BROWN:           .word   0xA52A2A
+LIGHT_PURPLE:    .word   0x800080
+LIGHT_YELLOW:    .word   0xFF0000
+LIGHT_GREEN:     .word   0x00008B
 SKIN_COLOR: .word 0xFFDAB9
+hx1: .word 2
+hy1: .word 1
 lx1: .word 62
 ly1: .word 59
 lx3: .word 50
 ly3: .word 59
 lx2: .word 56
 ly2: .word 59
+ex1: .word 7
+ey1: .word 34
+ex2: .word 59
+ey2: .word 23
+eax1: .word 10
+eay1: .word 34
+dx1: .word 17
+dy1: .word 21
 x: .word 32
 y: .word 32
 game_over:             .word
@@ -128,6 +141,29 @@ main:
     j draw_game_start
     j exit          # otherwise, exit
 
+door:
+    # Retrieve the input arguments from the stack
+    lw $s0, dx1      # Load the value of x from the top of the stack
+    lw $s1, dy1      # Load the value of y after x on the stack
+    
+    # Start an infinite loop
+    health2loop:
+        # Check if x has reached 62
+        bge $s0, 27, end_loop
+        
+        # Draw a red pixel at (x, y)
+        lw $a2, RED       # load the value of the red color
+        move $a0, $s0     # move x coordinate to $a0
+        move $a1, $s1     # move y coordinate to $a1
+        jal draw_pixel    # call the draw_pixel function
+        
+        # Increment x and repeat the loop
+        addi $s0, $s0, 1  # add 1 to x coordinate
+        j health2loop
+        
+    end_loop:
+        j enemy1
+
 # Loop until user presses enter
 loop:
 	lw $t0, 0xffff0004	# get keypress from keyboard input
@@ -150,7 +186,30 @@ loop:
 	addi $t0, $zero, 0x20
 	
 	j loop			# otherwise, loop again
-	
+
+health_bar:
+    # Retrieve the input arguments from the stack
+    lw $s0, hx1      # Load the value of x from the top of the stack
+    lw $s1, hy1      # Load the value of y after x on the stack
+    
+    # Start an infinite loop
+    healthloop:
+        # Check if x has reached 62
+        bge $s0, 62, end_loo2p
+        
+        # Draw a red pixel at (x, y)
+        lw $a2, HEALTH_GREEN       # load the value of the red color
+        move $a0, $s0     # move x coordinate to $a0
+        move $a1, $s1     # move y coordinate to $a1
+        jal draw_pixel    # call the draw_pixel function
+        
+        # Increment x and repeat the loop
+        addi $s0, $s0, 1  # add 1 to x coordinate
+        j healthloop
+        
+    end_loo2p:
+        j door
+        
 # Move up
 move_up:
 	li $v0, 4		# syscall to print string
@@ -225,6 +284,338 @@ move_left:
 	addi $a0, $zero, 1000   # 1000 ms (1 second)
 	syscall
 	j exit_moving		# exit move function
+enemy1:
+
+# Retrieve the input arguments from the stack
+lw $s0, ex1      # Load the value of x from the top of the stack
+lw $s1, ey1      # Load the value of y after x on the stack
+
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 3
+addi $s1, $s1, 1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 5
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+
+addi $s1, $s1, 1
+
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+
+addi $s1, $s1, 1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+# draw the left half of the heart
+addi $s0, $s0, 1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+# draw the left half of the heart
+addi $s0, $s0, 1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+# draw the left half of the heart
+addi $s0, $s0, 1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+# draw the left half of the heart
+addi $s0, $s0, 1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+
+addi $s1, $s1, 1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+lw $a2, LIGHT_GREEN      # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+lw $a2, LIGHT_GREEN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+lw $a2, LIGHT_GREEN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+
+j enemy2
+
+enemy2:
+
+# Retrieve the input arguments from the stack
+lw $s0, ex2      # Load the value of x from the top of the stack
+lw $s1, ey2      # Load the value of y after x on the stack
+
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 3
+addi $s1, $s1, 1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, BROWN       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 5
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 1
+
+addi $s1, $s1, 1
+
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+# draw the left half of the heart
+lw $a2, LIGHT_YELLOW       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+# draw the left half of the heart
+addi $s0, $s0, 1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+# draw the left half of the heart
+addi $s0, $s0, 1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+# draw the left half of the heart
+addi $s0, $s0, 1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+# draw the left half of the heart
+addi $s0, $s0, 1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+
+addi $s1, $s1, 1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+lw $a2, LIGHT_PURPLE       # load the value of the red color
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+
+j loop
 
 draw_live1:
 
@@ -537,7 +928,7 @@ lw $a2, RED       # load the value of the red color
 move $a0, $s0           # move x coordinate to $a0
 move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
-j loop
+j health_bar
 
 # Exit move function and return to game update loop
 exit_moving:
