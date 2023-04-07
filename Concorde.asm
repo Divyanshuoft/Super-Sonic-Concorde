@@ -55,7 +55,7 @@ gx1: .word 15
 gy1: .word 5
 x: .word 5
 y: .word 52
-level: .word 1
+level: .word 3
 game_over:             .word
 
 
@@ -481,7 +481,51 @@ move $a0, $s0           # move x coordinate to $a0
 move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
 
-j gun
+shoot1:
+# Retrieve the input arguments from the stack
+lw $s0, ex1      # Load the value of x from the top of the stack
+lw $s1, ey1      # Load the value of y after x on the stack
+li $a2, 0xff0000 # Load the value of red color
+
+# Retrieve the input arguments from the stack
+lw $s0, ex1      # Load the value of x from the top of the stack
+lw $s1, ey1      # Load the value of y after x on the stack
+lw $s2, level    # Load the value of level from the stack
+
+# Loop to draw pixels one by one
+loopshoot1:
+    move $a0, $s0       # move x coordinate to $a0
+    move $a1, $s1       # move y coordinate to $a1
+    jal draw_pixel      # call the draw_pixel function
+    addi $s0, $s0, 1    # increment x coordinate
+    beq $s0, 63, enemy2   # exit loop when x coordinate reaches 63
+
+    # Set the delay time based on the level
+    beq $s2, 1, level11   # if level == 1, go to level1
+    beq $s2, 2, level21  # if level == 2, go to level2
+    beq $s2, 3, level31  # if level == 3, go to level3
+    j exit               # otherwise, exit program
+
+    # Delay time for level 1: 200ms (0.2s)
+    level11:
+        li $a0, 200         # set delay time to 200ms
+        j continue          # jump to continue
+
+    # Delay time for level 2: 100ms (0.1s)
+    level21:
+        li $a0, 100         # set delay time to 100ms
+        j continue          # jump to continue
+
+    # Delay time for level 3: 50ms (0.05s)
+    level31:
+        li $a0, 50          # set delay time to 50ms
+        j continue          # jump to continue
+
+    # Continue program execution
+    continue:
+        li $v0, 32          # syscall code for sleep function
+        syscall             # pause program for specified delay time
+        j loopshoot1        # jump back to loop start
 
 gun:
 
