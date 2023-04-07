@@ -778,6 +778,9 @@ loop_game_start:        bge $t2, $t3, draw_game_over
             add $t4, $t4, $t0        # $t4 stores address of current unit
             sw $t5, 0($t4)            # paint unit black
             addi $t2, $t2, 1        # increment counter
+            lw $t7, 0xffff0004           # get keypress from keyboard input
+            beq $t7, 0x61, draw_game	# go to draw_game if "a" is pressed
+            beq $t7, 0x65, exit     # exit loop if 'e' was pressed
             j loop_game_start
             
 draw_game_over:        li $t0, BASE_ADDRESS        # $t0 stores base address
@@ -798,6 +801,9 @@ loop_game_over:        bge $t2, $t3, draw_game2
             add $t4, $t4, $t0        # $t4 stores address of current unit
             sw $t5, 0($t4)            # paint unit black
             addi $t2, $t2, 1        # increment counter
+            beq $t7, 0x61, draw_game	# go to draw_game if "a" is pressed
+            lw $t7, 0xffff0004           # get keypress from keyboard input
+            beq $t7, 0x65, exit     # exit loop if 'e' was pressed
             j loop_game_over
 
 draw_game2:        li $t0, BASE_ADDRESS        # $t0 stores base address
@@ -816,6 +822,9 @@ loop_game2:        bge $t2, $t3, draw_game
             add $t4, $t4, $t0        # $t4 stores address of current unit
             sw $t5, 0($t4)            # paint unit black
             addi $t2, $t2, 1        # increment counter
+            lw $t7, 0xffff0004           # get keypress from keyboard input
+            beq $t7, 0x61, draw_game	# go to draw_game if "a" is pressed
+            beq $t7, 0x65, exit     # exit loop if 'e' was pressed
             j loop_game2
             
 draw_game:        li $t0, BASE_ADDRESS        # $t0 stores base address
@@ -834,6 +843,8 @@ loop_game:        bge $t2, $t3, draw_lives
             add $t4, $t4, $t0        # $t4 stores address of current unit
             sw $t5, 0($t4)            # paint unit black
             addi $t2, $t2, 1        # increment counter
+            lw $t7, 0xffff0004           # get keypress from keyboard input
+            beq $t7, 0x65, exit     # exit loop if 'e' was pressed
             j loop_game
             
 exit_game_over:        
