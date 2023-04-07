@@ -111,7 +111,7 @@ loop:
 	
 	# Sleep for 66 ms so frame rate is about 15
 	addi $v0, $zero, 32	# syscall sleep
-	addi $a0, $zero, 66	# 66 ms
+	addi $a0, $zero, 1500	# 66 ms
 	syscall
 	
 	# Check which key was pressed
