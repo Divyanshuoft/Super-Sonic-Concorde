@@ -788,7 +788,7 @@ draw_game_over:        li $t0, BASE_ADDRESS        # $t0 stores base address
             li $t2, 0            # $t2 stores counter
             li $t3, NUM_UNITS        # $t3 stores total units
 
-loop_game_over:        bge $t2, $t3, draw_game
+loop_game_over:        bge $t2, $t3, draw_game2
 	    lw $t7, 0xffff0004	# get keypress from keyboard input
 	    beq $t7, 0xA, exit	# exit loop if enter was pressed
             sll $t4, $t2, 2            # calculate offset
@@ -799,12 +799,30 @@ loop_game_over:        bge $t2, $t3, draw_game
             addi $t2, $t2, 1        # increment counter
             j loop_game_over
 
-draw_game:        li $t0, BASE_ADDRESS        # $t0 stores base address
+draw_game2:        li $t0, BASE_ADDRESS        # $t0 stores base address
     la $a0, tone
     lw $a1, duration
     li $v0, 33
     syscall
             la $t1, startend        # $t1 stores address of game_over
+            li $t2, 0            # $t2 stores counter
+            li $t3, NUM_UNITS        # $t3 stores total units
+
+loop_game2:        bge $t2, $t3, draw_game
+            sll $t4, $t2, 2            # calculate offset
+            add $t5, $t1, $t4        # $t5 stores address of color for current unit
+            lw $t5, 0($t5)            # $t5 stores color of current unit
+            add $t4, $t4, $t0        # $t4 stores address of current unit
+            sw $t5, 0($t4)            # paint unit black
+            addi $t2, $t2, 1        # increment counter
+            j loop_game2
+            
+draw_game:        li $t0, BASE_ADDRESS        # $t0 stores base address
+    la $a0, tone
+    lw $a1, duration
+    li $v0, 33
+    syscall
+            la $t1, background        # $t1 stores address of game_over
             li $t2, 0            # $t2 stores counter
             li $t3, NUM_UNITS        # $t3 stores total units
 
