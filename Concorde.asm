@@ -5,6 +5,7 @@
 
 tone: .byte 7      # Tone frequency
 duration: .word 2000  # Tone duration (500 ms)
+duration2: .word 10000  # Tone duration (500 ms)
 hello_world: .asciiz "Hello world\n"  # the string to print
 message_up: .asciiz "Moving up\n"
 message_down: .asciiz "Moving down\n"
@@ -819,7 +820,7 @@ loop_game2:        bge $t2, $t3, draw_game
             
 draw_game:        li $t0, BASE_ADDRESS        # $t0 stores base address
     la $a0, tone
-    lw $a1, duration
+    lw $a1, duration2
     li $v0, 33
     syscall
             la $t1, background        # $t1 stores address of game_over
