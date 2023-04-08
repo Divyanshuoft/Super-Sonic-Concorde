@@ -191,14 +191,13 @@ loop:
 	sw $t1, key_pressed
 	# Load value of position into register $t0
         lw $t2, position
-	jal reset_character_gun  # Jump to reset_character if $t0 is equal to 1
 	# If $t0 is not equal to 1, jump to reset_character_gun
 
 	beq $t0, 0x77, move_up	# 'w' pressed, move up
 	beq $t0, 0x73, move_down	# 's' pressed, move down
 	beq $t0, 0x64, move_right	# 'd' pressed, move right
 	beq $t0, 0x61, move_left	# 'a' pressed, move left
-		j drawing_function
+	j drawing_function
 	# Set $t0 to space key
 	addi $t0, $zero, 0x20
 	
@@ -239,6 +238,7 @@ move_up:
 	li $v0, 4		# syscall to print string
 	la $a0, message_up	# load message string into $a0
 	syscall
+	jal reset_character
 	lw $t0, x      # Load the current value of x into $t0
     	lw $t1, y      # Load the current value of y into $t1
     	
@@ -254,7 +254,7 @@ move_down:
 	li $v0, 4		# syscall to print string
 	la $a0, message_down	# load message string into $a0
 	syscall
-	
+	jal reset_character
 	lw $t0, x      # Load the current value of x into $t0
     	lw $t1, y      # Load the current value of y into $t1
   	
@@ -274,7 +274,7 @@ move_right:
 	li $v0, 4		# syscall to print string
 	la $a0, message_right	# load message string into $a0
 	syscall
-	
+	jal reset_character
 	lw $t0, x      # Load the current value of x into $t0
     	lw $t1, y      # Load the current value of y into $t1
     	
@@ -294,7 +294,7 @@ move_left:
 	li $v0, 4		# syscall to print string
 	la $a0, message_left	# load message string into $a
 	syscall
-	
+	jal reset_character
 	lw $t0, x      # Load the current value of x into $t0
     	lw $t1, y      # Load the current value of y into $t1
     	
@@ -1539,7 +1539,7 @@ drawing_function:
     
     # Call the function with the values of x and y as arguments
     lw $t0, position    # Load the value of position into $t0
-    beq $t0, $zero, draw_character_gun   # If position == 0, branch to character_gun
+    beq $t0, $zero, draw_character   # If position == 0, branch to character_gun
     j draw_character     # Otherwise, jump to draw_character 
     j exit_moving # exit move function
 
