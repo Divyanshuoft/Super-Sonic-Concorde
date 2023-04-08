@@ -54,6 +54,7 @@ cy1: .word 15
 gx1: .word 15
 gy1: .word 5
 x: .word 5
+up: .word 0 
 y: .word 49
 position: .word 1
 level: .word 1
@@ -241,39 +242,64 @@ healthloop:
 end_loop4:
     j door
 
-        
-# Move up
 move_up:
-	li $v0, 4		# syscall to print string
-	la $a0, message_up	# load message string into $a0
-	syscall
-	jal reset_character
-	lw $t0, x      # Load the current value of x into $t0
-    	lw $t1, y      # Load the current value of y into $t1
-    	addi $t1, $t1, -1     # Decrease the value of y by 1
-    	
-    	sw $t0, x             # Store the new value of x
-	sw $t1, y             # Store the new value of y
-	
-	j drawing_function
-	j exit_moving		# exit move function
-# Move down
+    li $v0, 4           # syscall to print string
+    la $a0, message_down  # load message string into $a0
+    lw $a2, up
+    beq $a2, 0, inc	# 'w' pressed, move up
+    beq $a2, 1, dec	# 'w' pressed, move up
+    syscall
+    jal reset_character # reset the character's position
+    lw $t0, x           # Load the current value of x into $t0
+    lw $t1, y           # Load the current value of y into $t1
+    bgt $t1, 7, moveup
+    j drawing_function  # Redraw the character on the screen
+    j exit_moving       # If y is greater than or equal to 49, jump to exit_moving label
+    
+moveup:
+    addi $t1, $t1, -5    # Increase the value of y by 1
+    sw $t0, x           # Store the new value of x
+    sw $t1, y           # Store the new value of y
+    j drawing_function  # Redraw the character on the screen
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 200    # 200 ms (0.2 seconds)
+    syscall
+    j exit_moving       # exit move function
+
+inc:
+    lw $a2, up
+    addi $a2, $a2, 1
+    sw $a2, up
+    jr $ra
+
+dec:
+    lw $a2, up
+    addi $a2, $a2, -1
+    sw $a2, up
+    jr $ra
+
 move_down:
-	li $v0, 4		# syscall to print string
-	la $a0, message_down	# load message string into $a0
-	syscall
-	jal reset_character
-	lw $t0, x      # Load the current value of x into $t0
-    	lw $t1, y      # Load the current value of y into $t1
-  	
-    	addi $t1, $t1, 1     # Decrease the value of y by 1
-    	sw $t0, x             # Store the new value of x
-	sw $t1, y             # Store the new value of y
-	j drawing_function
-		addi $v0, $zero, 32     # syscall sleep
-	addi $a0, $zero, 1000   # 1000 ms (1 second)
-	syscall
-	j exit_moving		# exit move function
+    li $v0, 4           # syscall to print string
+    la $a0, message_down  # load message string into $a0
+    syscall
+    jal reset_character # reset the character's position
+    lw $t0, x           # Load the current value of x into $t0
+    lw $t1, y           # Load the current value of y into $t1
+    
+    blt $t1, 49, move   # Check if y is less than 49. If true, jump to move label
+    j drawing_function  # Redraw the character on the screen
+    j exit_moving       # If y is greater than or equal to 49, jump to exit_moving label
+
+move:
+    addi $t1, $t1, 1    # Increase the value of y by 1
+    sw $t0, x           # Store the new value of x
+    sw $t1, y           # Store the new value of y
+    j drawing_function  # Redraw the character on the screen
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 200    # 200 ms (0.2 seconds)
+    syscall
+    j exit_moving       # exit move function
+
 	
 # Move right
 move_right:
@@ -293,26 +319,28 @@ move_right:
 	addi $a0, $zero, 1000   # 1000 ms (1 second)
 	syscall
 	j exit_moving		# exit move function
-	
-# Move left
+
 move_left:
-	li $v0, 4		# syscall to print string
-	la $a0, message_left	# load message string into $a
-	syscall
-	jal reset_character
-	lw $t0, x      # Load the current value of x into $t0
-    	lw $t1, y      # Load the current value of y into $t1
-    	
-    	addi $t0, $t0, -1     # Decrease the value of y by 1
-    	
-    	sw $t0, x             # Store the new value of x
-	sw $t1, y             # Store the new value of y
-	
-	j drawing_function
-		addi $v0, $zero, 32     # syscall sleep
-	addi $a0, $zero, 1000   # 1000 ms (1 second)
-	syscall
-	j exit_moving		# exit move function
+    li $v0, 4           # syscall to print string
+    la $a0, message_down  # load message string into $a0
+    syscall
+    jal reset_character # reset the character's position
+    lw $t0, x           # Load the current value of x into $t0
+    lw $t1, y           # Load the current value of y into $t1
+    bgt $t0, 4, moveleft
+    j drawing_function  # Redraw the character on the screen
+    j exit_moving       # If y is greater than or equal to 49, jump to exit_moving label
+
+moveleft:
+    addi $t0, $t0, -1    # Increase the value of y by 1
+    sw $t0, x           # Store the new value of x
+    sw $t1, y           # Store the new value of y
+    j drawing_function  # Redraw the character on the screen
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 200    # 200 ms (0.2 seconds)
+    syscall
+    j exit_moving       # exit move function
+  
 enemy1:
 
 # Retrieve the input arguments from the stack
