@@ -258,7 +258,13 @@ move_down:
     	lw $t1, y      # Load the current value of y into $t1
   	
     	addi $t1, $t1, 1     # Decrease the value of y by 1
-    	jal restriction
+    	sw $t0, x             # Store the new value of x
+	sw $t1, y             # Store the new value of y
+	j drawing_function
+		addi $v0, $zero, 32     # syscall sleep
+	addi $a0, $zero, 1000   # 1000 ms (1 second)
+	syscall
+	j exit_moving		# exit move function
 	
 # Move right
 move_right:
@@ -1742,20 +1748,10 @@ lw $t0, x     # Load x into register $t0
 lw $t1, y     # Load y into register $t1
 
 # Check if y is greater than 60
-bgt $t1, 49
-
-
-
-, exit_moving  # Jump to function_return if y > 60
+bgt $t1, 49, exit_moving  # Jump to function_return if y > 60
 
 # If y is not greater than 60, jump to exit_moving
-    	sw $t0, x             # Store the new value of x
-	sw $t1, y             # Store the new value of y
-	j drawing_function
-		addi $v0, $zero, 32     # syscall sleep
-	addi $a0, $zero, 1000   # 1000 ms (1 second)
-	syscall
-	j exit_moving		# exit move function
+jr $ra
 
  
 draw_character_gun:
@@ -1984,7 +1980,7 @@ loop_game2:        bge $t2, $t3, draw_game
             beq $t7, 0x65, exit     # exit loop if 'e' was pressed
             j loop_game2
             
-reset_character_gun:        
+reset_char_gun_level1:        
 
 li $t0, BASE_ADDRESS        # $t0 stores base address
 la $t1, background        # $t1 stores address of game_over
@@ -2159,11 +2155,785 @@ lw $t5, 0($t5)            # $t5 stores color of current unit
 add $t4, $t4, $t0        # $t4 stores address of current unit
 sw $t5, 0($t4)            # paint unit black
 
+jr $ra
+reset_char_gun_level2:        
+
+li $t0, BASE_ADDRESS        # $t0 stores base address
+la $t1, level2        # $t1 stores address of game_over
+    # Load values of x and y into registers
+lw $t5, x
+lw $t6, y
+
+# Compute 64*y + x and store the result in $t7
+sll $t6, $t6, 6  # Multiply y by 64 by shifting left by 6 bits
+add $t2, $t6, $t5  # Add x to the result
+
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 65
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+jr $ra
+reset_char_gun_level3:        
+
+li $t0, BASE_ADDRESS        # $t0 stores base address
+la $t1, level3        # $t1 stores address of game_over
+    # Load values of x and y into registers
+lw $t5, x
+lw $t6, y
+
+# Compute 64*y + x and store the result in $t7
+sll $t6, $t6, 6  # Multiply y by 64 by shifting left by 6 bits
+add $t2, $t6, $t5  # Add x to the result
+
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 65
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
 
 jr $ra
 
-reset_character:        
+reset_character:
+# Load address of level array based on value of level variable
+lw $t0, level
+beq $t0, 1, reset_char_level1 # If level == 1, jump to load_background
+beq $t0, 3, reset_char_level3     # If level == 2, jump to load_level2
+beq $t0, 2, reset_char_level2     # If level == 3, jump to load_level3
+jr $ra      
 
+reset_character_gun:
+# Load address of level array based on value of level variable
+lw $t0, level
+beq $t0, 1, reset_char_gun_level1 # If level == 1, jump to load_background
+beq $t0, 3, reset_char_gun_level3     # If level == 2, jump to load_level2
+beq $t0, 2, reset_char_gun_level2     # If level == 3, jump to load_level3
+jr $ra   
+
+reset_char_level3:
+li $t0, BASE_ADDRESS        # $t0 stores base address
+la $t1, level3        # $t1 stores address of game_over
+    # Load values of x and y into registers
+lw $t5, x
+lw $t6, y
+
+# Compute 64*y + x and store the result in $t7
+sll $t6, $t6, 6  # Multiply y by 64 by shifting left by 6 bits
+add $t2, $t6, $t5  # Add x to the result
+
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 68
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 68
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 65
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+jr $ra
+
+reset_char_level2:
+li $t0, BASE_ADDRESS        # $t0 stores base address
+la $t1, level2        # $t1 stores address of game_over
+    # Load values of x and y into registers
+lw $t5, x
+lw $t6, y
+
+# Compute 64*y + x and store the result in $t7
+sll $t6, $t6, 6  # Multiply y by 64 by shifting left by 6 bits
+add $t2, $t6, $t5  # Add x to the result
+
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 68
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 68
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 66
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+addi $t2, $t2, 65
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
+
+jr $ra
+
+reset_char_level1:
 li $t0, BASE_ADDRESS        # $t0 stores base address
 la $t1, background        # $t1 stores address of game_over
     # Load values of x and y into registers
@@ -2364,7 +3134,6 @@ add $t5, $t1, $t4        # $t5 stores address of color for current unit
 lw $t5, 0($t5)            # $t5 stores color of current unit
 add $t4, $t4, $t0        # $t4 stores address of current unit
 sw $t5, 0($t4)            # paint unit black
-
 
 jr $ra
             
@@ -2373,7 +3142,7 @@ draw_game:        li $t0, BASE_ADDRESS        # $t0 stores base address
     lw $a1, duration2
     li $v0, 33
     syscall
-            la $t1, background        # $t1 stores address of game_over
+            la $t1, level3        # $t1 stores address of game_over
             li $t2, 0            # $t2 stores counter
             li $t3, NUM_UNITS        # $t3 stores total units
 
