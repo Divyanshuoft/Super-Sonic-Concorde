@@ -51,13 +51,17 @@ dx1: .word 17
 dy1: .word 21
 cx1: .word 5
 cy1: .word 15
-gx1: .word 15
-gy1: .word 5
+gx1: .word 55
+gy1: .word 45
 x: .word 5
 y: .word 49
+dex1: .word 50
+dey1: .word 46
 gravity: .word 0
 position: .word 1
 level: .word 1
+speed: .word 0
+speed_dec: .word 0
 game_over:             .word
 
 	0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00131326, 0x00262637, 0x00262637, 0x0033333c, 0x0033333c, 0x00131326, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00131326, 0x00262637, 0x0033333c, 0x0033333c, 0x0033333c, 0x00131326, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x0033333c, 0x00262637, 0x0033333c, 0x0033333c, 0x0033333c, 0x00131326, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00000000, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00131326, 0x007f7f72, 0x00262637, 0x0033333c, 0x0033333c, 0x0033333c, 0x0033333c, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00000000, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00000000, 0x00000000, 0x00000000, 0x00545454, 0x00545454, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00000000, 0x00000000, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x0033333c, 0x00262637, 0x00262637, 0x00262637, 0x0033333c, 0x0033333c, 0x0033333c, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00000000, 0x007a148c, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00000000, 0x00000000, 0x00000000, 0x00545454, 0x00545454, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00000000, 0x007a148c, 0x00000000, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00131326, 0x007f7f72, 0x00262637, 0x007f7f72, 0x00262637, 0x00262637, 0x00595959, 0x00262637, 0x00131326, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x00000000, 0x007a148c, 0x00000000, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x007a148c, 0x00000000, 0x00000000, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x0033333c, 0x007f7f72, 0x00262637, 0x00262637, 0x0033333c, 0x0033333c, 0x00262637, 0x00262637, 0x00262637, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x007a148c, 0x007a148c, 0x00000000, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x00000000, 0x00ffeb3b, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00ffeb3b, 0x00000000, 0x00000000, 0x00000000, 0x00545454, 0x00a1a1a1, 0x00000000, 0x00000000, 0x007a148c, 0x007a148c, 0x00000000, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x0033333c, 0x00262637, 0x00262637, 0x0033333c, 0x0033333c, 0x0033333c, 0x0033333c, 0x0033333c, 0x00595959, 0x00545454, 
@@ -215,8 +219,7 @@ loop:
 	beq $t1, 1, loop	# if key has been pressed, loop again
 	lw $t5, gravity    # load the value of gravity into register $t0
 	li $t6, 0          # load the value 1 into register $t1
-	jal handle_gravity  # if $t0 (gravity) equals $t1 (1), jump to handle_gravity
-	
+	jal handle_gravity  # if $t0 (gravity) equals $t1 (1), jump to handle_gravity\
 	# Set key_pressed flag to 1
 	sw $t1, key_pressed
 	# Load value of position into register $t0
@@ -282,7 +285,16 @@ healthloop:
     j healthloop
         
 end_loop4:
-    j door
+    # Load the level value from memory into $t0
+    lw $t0, level
+
+    # Compare $t0 to the desired levels and jump accordingly
+    beq $t0, 1, gun   # if level == 1, jump to gun
+    beq $t0, 2, coin # if level == m2, jump to coin
+    beq $t0, 3, slow_down # if level == 3, jump to slow_down
+
+    # If none of the above conditions are met, continue execution at the end of the function
+    j loop
 
 move_up:
     li $v0, 4           # syscall to print string
@@ -648,7 +660,7 @@ move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
 addi $s0, $s0, -1
 
-j enemy2
+j loop
 
 enemy2:
 
@@ -1136,6 +1148,133 @@ jal draw_pixel          # call the draw_pixel function
 
 j coin
 
+slow_down:
+
+# Retrieve the input arguments from the stack
+lw $s0, dex1      # Load the value of x from the top of the stack
+lw $s1, dey1      # Load the value of y after x on the stack
+
+# draw the left half of the heart
+lw $a2, RED       # load the value of the red color
+
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 4
+
+addi $s1, $s1, 1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s1, $s1, 1
+
+addi $s0, $s0, 5
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+
+addi $s1, $s1, 1
+
+addi $s0, $s0, 5
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+
+addi $s1, $s1, 1
+
+addi $s0, $s0, 4
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+j loop
+
 coin:
 
 # Retrieve the input arguments from the stack
@@ -1577,7 +1716,6 @@ move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
 j health_bar
 
-# Exit move function and return to game update loop
 exit_moving:
 # Sleep for 66 ms so frame rate is about 15
 	addi $v0, $zero, 32	# syscall sleep
@@ -1586,8 +1724,10 @@ exit_moving:
 	# Set $t0 to space key
 	addi $t0, $zero, 0x20
 	sw $zero, key_pressed	# reset key_pressed flag to 0
+	
+	    lw $t0, level
 	j loop			# loop back to beginning
-
+	
 drawing_function:
     lw $t0, x      # Set x to 10
     lw $t1, y      # Set y to 20
