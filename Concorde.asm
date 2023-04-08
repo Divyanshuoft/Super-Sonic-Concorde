@@ -2249,6 +2249,13 @@ add $t5, $t1, $t4        # $t5 stores address of color for current unit
 lw $t5, 0($t5)            # $t5 stores color of current unit
 add $t4, $t4, $t0        # $t4 stores address of current unit
 sw $t5, 0($t4)            # paint unit black
+addi $t2, $t2, -1
+# The result is stored in $t7
+sll $t4, $t2, 2            # calculate offset
+add $t5, $t1, $t4        # $t5 stores address of color for current unit
+lw $t5, 0($t5)            # $t5 stores color of current unit
+add $t4, $t4, $t0        # $t4 stores address of current unit
+sw $t5, 0($t4)            # paint unit black
 
 addi $t2, $t2, 68
 # The result is stored in $t7
