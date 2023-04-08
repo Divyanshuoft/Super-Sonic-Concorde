@@ -241,7 +241,6 @@ move_up:
 	jal reset_character
 	lw $t0, x      # Load the current value of x into $t0
     	lw $t1, y      # Load the current value of y into $t1
-    	
     	addi $t1, $t1, -1     # Decrease the value of y by 1
     	
     	sw $t0, x             # Store the new value of x
@@ -259,15 +258,7 @@ move_down:
     	lw $t1, y      # Load the current value of y into $t1
   	
     	addi $t1, $t1, 1     # Decrease the value of y by 1
-    	
-    	sw $t0, x             # Store the new value of x
-	sw $t1, y             # Store the new value of y
-	
-	j drawing_function
-		addi $v0, $zero, 32     # syscall sleep
-	addi $a0, $zero, 1000   # 1000 ms (1 second)
-	syscall
-	j exit_moving		# exit move function
+    	jal restriction
 	
 # Move right
 move_right:
@@ -282,7 +273,6 @@ move_right:
     	
     	sw $t0, x             # Store the new value of x
 	sw $t1, y             # Store the new value of y
-	
     	j drawing_function
     		addi $v0, $zero, 32     # syscall sleep
 	addi $a0, $zero, 1000   # 1000 ms (1 second)
@@ -1539,7 +1529,7 @@ drawing_function:
     
     # Call the function with the values of x and y as arguments
     lw $t0, position    # Load the value of position into $t0
-    beq $t0, $zero, draw_character   # If position == 0, branch to character_gun
+    beq $t0, $zero, draw_character_gun   # If position == 0, branch to character_gun
     j draw_character     # Otherwise, jump to draw_character 
     j exit_moving # exit move function
 
@@ -1746,6 +1736,28 @@ draw_character:
     jal draw_pixel          # call the draw_pixel function
     j exit_moving		# exit move function
     
+restriction:
+# Load values of x and y into registers
+lw $t0, x     # Load x into register $t0
+lw $t1, y     # Load y into register $t1
+
+# Check if y is greater than 60
+bgt $t1, 49
+
+
+
+, exit_moving  # Jump to function_return if y > 60
+
+# If y is not greater than 60, jump to exit_moving
+    	sw $t0, x             # Store the new value of x
+	sw $t1, y             # Store the new value of y
+	j drawing_function
+		addi $v0, $zero, 32     # syscall sleep
+	addi $a0, $zero, 1000   # 1000 ms (1 second)
+	syscall
+	j exit_moving		# exit move function
+
+ 
 draw_character_gun:
     lw $t1, position      # Load the current value of y into $t1
     	
@@ -1757,7 +1769,7 @@ draw_character_gun:
     lw $s1, 4($sp)      # Load the value of y after x on the stack
     
     # call the draw_pixel function to draw a pixel at (332, 32) in red
-    lw $a2, BROWN       # load the value of the red color
+    lw $a2, RED       # load the value of the red color
     move $a0, $s0           # move x coordinate to $a0
     move $a1, $s1           # move y coordinate to $a1
     jal draw_pixel          # call the draw_pixel function
