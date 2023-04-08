@@ -209,7 +209,7 @@ loop:
 	sw $t7, 0xffff0004   # store value at memory address 0xffff0004
 	# Check which key was pressedsssssssssssssssssssssssssssssssss
 	beq $t0, 0xA, exit	# exit loop if enter was pressed
-	
+
 	# Check if key has been pressed already
 	lw $t1, key_pressed
 	beq $t1, 1, loop	# if key has been pressed, loop again
@@ -282,7 +282,7 @@ healthloop:
     j healthloop
         
 end_loop4:
-    j door
+    j reset_health
 
 move_up:
     li $v0, 4           # syscall to print string
@@ -591,6 +591,30 @@ loopshoot1:
         li $v0, 32          # syscall code for sleep function
         syscall             # pause program for specified delay time
         j loopshoot1        # jump back to loop start
+
+reset_health:        li $t0, BASE_ADDRESS        # $t0 stores base address
+    syscall
+            la $t1, background        # $t1 stores address of game_over
+            li $t2, 66            # $t2 stores counter
+            li $t3, 126        # $t3 stores total units
+
+loop_game_health:        bge $t2, $t3, loop
+	    lw $a1, x
+	    lw $a2, y
+	    li $t8, 5      # load the value 5 into $t0
+	    sw $t8, x      # store the value of $t0 into memory location x
+
+	    li $t9, 49     # load the value 49 into $t1
+	    sw $t9, y      # store the value of $t1 into memory location y
+            sll $t4, $t2, 2            # calculate offset
+            add $t5, $t1, $t4        # $t5 stores address of color for current unit
+            lw $t5, 0($t5)            # $t5 stores color of current unit
+            add $t4, $t4, $t0        # $t4 stores address of current unit
+            sw $t5, 0($t4)            # paint unit black
+            addi $t2, $t2, 1        # increment counter
+            lw $t7, 0xffff0004           # get keypress from keyboard input
+            beq $t7, 0x65, exit     # exit loop if 'e' was pressed
+            j loop_game_health
 
 gun:
 
@@ -1586,6 +1610,11 @@ exit_moving:
 	# Set $t0 to space key
 	addi $t0, $zero, 0x20
 	sw $zero, key_pressed	# reset key_pressed flag to 0
+	lw $t4, hx1
+	addi $t4, $t4, 1
+	sw $t4, hx1
+	
+	jal health_bar
 	j loop			# loop back to beginning
 
 drawing_function:
