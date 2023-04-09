@@ -51,13 +51,18 @@ dx1: .word 17
 dy1: .word 21
 cx1: .word 5
 cy1: .word 15
-gx1: .word 15
-gy1: .word 5
+gx1: .word 55
+gy1: .word 45
 x: .word 5
 y: .word 49
+health_timer: .word 0
+dex1: .word 50
+dey1: .word 46
 gravity: .word 0
 position: .word 1
 level: .word 1
+speed: .word 0
+speed_dec: .word 0
 game_over:             .word
 
 	0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00131326, 0x00262637, 0x00262637, 0x0033333c, 0x0033333c, 0x00131326, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00131326, 0x00262637, 0x0033333c, 0x0033333c, 0x0033333c, 0x00131326, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x0033333c, 0x00262637, 0x0033333c, 0x0033333c, 0x0033333c, 0x00131326, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00000000, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00131326, 0x007f7f72, 0x00262637, 0x0033333c, 0x0033333c, 0x0033333c, 0x0033333c, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00000000, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00000000, 0x00000000, 0x00000000, 0x00545454, 0x00545454, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00000000, 0x00000000, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x0033333c, 0x00262637, 0x00262637, 0x00262637, 0x0033333c, 0x0033333c, 0x0033333c, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00000000, 0x007a148c, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00000000, 0x00000000, 0x00000000, 0x00545454, 0x00545454, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00000000, 0x007a148c, 0x00000000, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00131326, 0x007f7f72, 0x00262637, 0x007f7f72, 0x00262637, 0x00262637, 0x00595959, 0x00262637, 0x00131326, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x00000000, 0x007a148c, 0x00000000, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x007a148c, 0x00000000, 0x00000000, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x0033333c, 0x007f7f72, 0x00262637, 0x00262637, 0x0033333c, 0x0033333c, 0x00262637, 0x00262637, 0x00262637, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x007a148c, 0x007a148c, 0x00000000, 0x00000000, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00000000, 0x00000000, 0x00ffeb3b, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00ffeb3b, 0x00000000, 0x00000000, 0x00000000, 0x00545454, 0x00a1a1a1, 0x00000000, 0x00000000, 0x007a148c, 0x007a148c, 0x00000000, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x00545454, 0x00545454, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00a1a1a1, 0x00545454, 0x00545454, 0x0033333c, 0x00262637, 0x00262637, 0x0033333c, 0x0033333c, 0x0033333c, 0x0033333c, 0x0033333c, 0x00595959, 0x00545454, 
@@ -199,7 +204,7 @@ door:
         
     end_loop:
         j coin
-
+        
 # Loop until user presses enter
 loop:
 	addi $sp, $sp, -4
@@ -209,25 +214,27 @@ loop:
 	sw $t7, 0xffff0004   # store value at memory address 0xffff0004
 	# Check which key was pressedsssssssssssssssssssssssssssssssss
 	beq $t0, 0xA, exit	# exit loop if enter was pressed
-
+	
 	# Check if key has been pressed already
 	lw $t1, key_pressed
 	beq $t1, 1, loop	# if key has been pressed, loop again
 	lw $t5, gravity    # load the value of gravity into register $t0
 	li $t6, 0          # load the value 1 into register $t1
-	jal handle_gravity  # if $t0 (gravity) equals $t1 (1), jump to handle_gravity
-	
+	jal handle_gravity  # if $t0 (gravity) equals $t1 (1), jump to handle_gravity\
 	# Set key_pressed flag to 1
 	sw $t1, key_pressed
 	# Load value of position into register $t0
         lw $t2, position
 	# If $t0 is not equal to 1, jump to reset_character_gun
         lw $a2, x       # load the value of the red color
+        lw $t9, hs
+        li $t8, -50
 	bgt $a2, 63, adapter
+        beq $t9, $t8, draw_win	# 's' pressed, move down
 	beq $t0, 0x77, move_up	# 'w' pressed, move up
 	beq $t0, 0x73, move_down	# 's' pressed, move down
 	beq $t0, 0x64, move_right	# 'd' pressed, move right
-	beq $t0, 0x61, move_left	# 'a' pressed, move left
+	beq $t0, 0x61, move_left	# 'a' pressed, move leftww
 	j drawing_function
 	# Set $t0 to space key
 	addi $t0, $zero, 0x20
@@ -254,7 +261,7 @@ bge $t2, 3, draw_level3   # if so, branch to draw_level3
 ble $t2, 2, draw_level2   # if the original value of level was 1 or less, branch to draw_level2
 j loop                   # otherwise, jump to the loop label
 
-        
+
 health_bar:
     # Retrieve the input arguments from the stack
     # Retrieve the input arguments from the stack
@@ -263,7 +270,7 @@ lw $s1, hy1      # Load the value of y after x on the stack
 lw $t0, hx1      # Load the value of x after y on the stack
 
 # Calculate the remaining distance to the right edge of the screen
-li $t1, 64       # Load the maximum x coordinate
+li $t1, 3      # Load the maximum x coordinate
 sub $t1, $t1, $t0 # Subtract the current x coordinate from the maximum x coordinate
 
 # Start a loop to draw the health bar
@@ -272,7 +279,7 @@ healthloop:
     bge $s0, $t1, end_loop4
         
     # Draw a green pixel at (x, y)
-    lw $a2, HEALTH_GREEN      # load the value of the green color
+    lw $a2, BLACK      # load the value of the green color
     move $a0, $s0     # move x coordinate to $a0
     move $a1, $s1     # move y coordinate to $a1
     jal draw_pixel    # call the draw_pixel function
@@ -280,9 +287,18 @@ healthloop:
     # Increment x and repeat the loop
     addi $s0, $s0, 1  # add 1 to x coordinate
     j healthloop
-        
+     
 end_loop4:
-    j reset_health
+    # Load the level value from memory into $t0
+    lw $t0, level
+
+    # Compare $t0 to the desired levels and jump accordingly
+    beq $t0, 1, gun   # if level == 1, jump to gun
+    beq $t0, 2, coin # if level == m2, jump to coin
+    beq $t0, 3, slow_down # if level == 3, jump to slow_down
+
+    # If none of the above conditions are met, continue execution at the end of the function
+    j loop
 
 move_up:
     li $v0, 4           # syscall to print string
@@ -296,14 +312,37 @@ move_up:
     j exit_moving       # If y is greater than or equal to 49, jump to exit_moving label
     
 moveup:
-    addi $t1, $t1, -7   # Increase the value of y by 1
+# Set initial position of the character
+lw $t0, x  # x coordinate
+lw $t1, y  # y coordinate
+
+# Jump up and come back down 5 times
+li $t2, 5   # Number of jumps to make
+li $t3, 0   # Loop counter
+loopj:
+    # Jump up
     sw $t0, x           # Store the new value of x
     sw $t1, y           # Store the new value of y
-    j drawing_function  # Redraw the character on the screen
+    j drawing_jump  # Redraw the character on the screen
     addi $v0, $zero, 32     # syscall sleep
     addi $a0, $zero, 200    # 200 ms (0.2 seconds)
     syscall
-    j exit_moving       # exit move function
+
+    # Come back down
+    addi $t1, $t1, 7   # Decrease the value of y by 7
+    sw $t0, x           # Store the new value of x
+    sw $t1, y           # Store the new value of y
+    j drawing_jump  # Redraw the character on the screen
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 200    # 200 ms (0.2 seconds)
+    syscall
+
+    # Increment loop counter
+    addi $t3, $t3, 1
+    blt $t3, $t2, loopj  # Repeat loop if loop counter < number of jumps
+j exit_moving       # exit move function
+
+
 
 move_down:
     li $v0, 4           # syscall to print string
@@ -312,20 +351,40 @@ move_down:
     jal reset_character # reset the character's position
     lw $t0, x           # Load the current value of x into $t0
     lw $t1, y           # Load the current value of y into $t1
-    
-    blt $t1, 49, move   # Check if y is less than 49. If true, jump to move label
+    bgt $t1, 7, movedown
     j drawing_function  # Redraw the character on the screen
     j exit_moving       # If y is greater than or equal to 49, jump to exit_moving label
+    
+movedown:
+# Set initial position of the character
+lw $t0, x  # x coordinate
+lw $t1, y  # y coordinate
 
-move:
-    addi $t1, $t1, 1    # Increase the value of y by 1
+# Jump up and come back down 5 times
+li $t2, 5   # Number of jumps to make
+li $t3, 0   # Loop counter
+loopdwon:
+    # Jump up
     sw $t0, x           # Store the new value of x
     sw $t1, y           # Store the new value of y
-    j drawing_function  # Redraw the character on the screen
+    j drawing_jumpright  # Redraw the character on the screen
     addi $v0, $zero, 32     # syscall sleep
     addi $a0, $zero, 200    # 200 ms (0.2 seconds)
     syscall
-    j exit_moving       # exit move function
+
+    # Come back down
+    addi $t1, $t1, 7   # Decrease the value of y by 7
+    sw $t0, x           # Store the new value of x
+    sw $t1, y           # Store the new value of y
+    j drawing_jumpright  # Redraw the character on the screen
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 200    # 200 ms (0.2 seconds)
+    syscall
+
+    # Increment loop counter
+    addi $t3, $t3, 1
+    blt $t3, $t2, loopdwon  # Repeat loop if loop counter < number of jumps
+j exit_moving       # exit move function
 
 	
 # Move right
@@ -592,30 +651,6 @@ loopshoot1:
         syscall             # pause program for specified delay time
         j loopshoot1        # jump back to loop start
 
-reset_health:        li $t0, BASE_ADDRESS        # $t0 stores base address
-    syscall
-            la $t1, background        # $t1 stores address of game_over
-            li $t2, 66            # $t2 stores counter
-            li $t3, 126        # $t3 stores total units
-
-loop_game_health:        bge $t2, $t3, loop
-	    lw $a1, x
-	    lw $a2, y
-	    li $t8, 5      # load the value 5 into $t0
-	    sw $t8, x      # store the value of $t0 into memory location x
-
-	    li $t9, 49     # load the value 49 into $t1
-	    sw $t9, y      # store the value of $t1 into memory location y
-            sll $t4, $t2, 2            # calculate offset
-            add $t5, $t1, $t4        # $t5 stores address of color for current unit
-            lw $t5, 0($t5)            # $t5 stores color of current unit
-            add $t4, $t4, $t0        # $t4 stores address of current unit
-            sw $t5, 0($t4)            # paint unit black
-            addi $t2, $t2, 1        # increment counter
-            lw $t7, 0xffff0004           # get keypress from keyboard input
-            beq $t7, 0x65, exit     # exit loop if 'e' was pressed
-            j loop_game_health
-
 gun:
 
 # Retrieve the input arguments from the stack
@@ -672,7 +707,7 @@ move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
 addi $s0, $s0, -1
 
-j enemy2
+j loop
 
 enemy2:
 
@@ -1160,6 +1195,133 @@ jal draw_pixel          # call the draw_pixel function
 
 j coin
 
+slow_down:
+
+# Retrieve the input arguments from the stack
+lw $s0, dex1      # Load the value of x from the top of the stack
+lw $s1, dey1      # Load the value of y after x on the stack
+
+# draw the left half of the heart
+lw $a2, RED       # load the value of the red color
+
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, 4
+
+addi $s1, $s1, 1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s1, $s1, 1
+
+addi $s0, $s0, 5
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+
+addi $s1, $s1, 1
+
+addi $s0, $s0, 5
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+
+addi $s1, $s1, 1
+
+addi $s0, $s0, 4
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+j loop
+
 coin:
 
 # Retrieve the input arguments from the stack
@@ -1599,28 +1761,87 @@ lw $a2, RED       # load the value of the red color
 move $a0, $s0           # move x coordinate to $a0
 move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
-j health_bar
+j health_original
 
-# Exit move function and return to game update loop
+# Initialize health_timer and hx1
+li $t5, 0     # health_timer = 0
+li $t4, 0     # hx1 = 0
+
+health_original:
+    # Retrieve the input arguments from the stack
+    # Retrieve the input arguments from the stack
+lw $s0, hs       # Load the value of x from the top of the stack
+lw $s1, hy1      # Load the value of y after x on the stack
+lw $t0, hx1      # Load the value of x after y on the stack
+
+# Calculate the remaining distance to the right edge of the screen
+li $t1, 64       # Load the maximum x coordinate
+sub $t1, $t1, $t0 # Subtract the current x coordinate from the maximum x coordinate
+
+# Start a loop to draw the health bar
+healthloop11:
+    # Check if x has reached the right edge of the screen
+    bge $s0, $t1, end_loop42
+        
+    # Draw a green pixel at (x, y)
+    lw $a2, RED      # load the value of the green color
+    move $a0, $s0     # move x coordinate to $a0
+    move $a1, $s1     # move y coordinate to $a1
+    jal draw_pixel    # call the draw_pixel function
+        
+    # Increment x and repeat the loop
+    addi $s0, $s0, 1  # add 1 to x coordinate
+    j healthloop11
+
+end_loop42:
+    # Load the level value from memory into $t0
+    lw $t0, level
+
+    # Compare $t0 to the desired levels and jump accordingly
+    beq $t0, 1, gun   # if level == 1, jump to gun
+    beq $t0, 2, coin # if level == m2, jump to coin
+    beq $t0, 3, slow_down # if level == 3, jump to slow_down
+
+    # If none of the above conditions are met, continue execution at the end of the function
+    j loop
+    
 exit_moving:
 # Sleep for 66 ms so frame rate is about 15
 	addi $v0, $zero, 32	# syscall sleep
 	addi $a0, $zero, 50	# 66 ms
 	syscall
+	lw $t6, health_timer
+	li $t7, 10
+	addi $t6, $t6, 1
+	sw $t6, health_timer
+	beq $t6, $t7, decrease_hx1
 	# Set $t0 to space key
 	addi $t0, $zero, 0x20
 	sw $zero, key_pressed	# reset key_pressed flag to 0
 	lw $t4, hx1
-	addi $t4, $t4, 1
+	lw $t5, health_timer
+	addi $t5, $t5, 1
+        addi $t2, $zero, -60   # Load the value -60 into $t2
+	beq $t4, $t2, draw_lost   # If hx1 equals -60, jump to draw_lost
 	sw $t4, hx1
+	lw $t0, level
+	j health_bar
+	j loop			# loop back to beginning
 	
-	jal health_bar
+decrease_hx1:
+	lw $t6, health_timer
+	li $t7, 0
+	sw $t7, health_timer
+	lw $t4, hx1
+	addi $t4, $t4,-1
+	sw $t4, hx1
+	j health_bar
 	j loop			# loop back to beginning
 
+	
 drawing_function:
     lw $t0, x      # Set x to 10
     lw $t1, y      # Set y to 20
-    
     # Push the values of x and y onto the stack
     addi $sp, $sp, -8   # Decrement stack pointer by 8 bytes
     sw $t0, 0($sp)      # Store the value of x at the top of the stack
@@ -1632,6 +1853,36 @@ drawing_function:
     j draw_character     # Otherwise, jump to draw_character 
     j exit_moving # exit move function
 
+drawing_jumpright:
+    lw $t0, x      # Set x to 10
+    lw $t1, y      # Set y to 20
+    
+    # Push the values of x and y onto the stack
+    addi $sp, $sp, -8   # Decrement stack pointer by 8 bytes
+    sw $t0, 0($sp)      # Store the value of x at the top of the stack
+    sw $t1, 4($sp)      # Store the value of y after x on the stack
+    
+    # Call the function with the values of x and y as arguments
+    lw $t0, position    # Load the value of position into $t0
+    beq $t0, $zero, draw_character_jumpright   # If position == 0, branch to character_gun
+    jal draw_character_jumpright    # Otherwise, jump to draw_character 
+    j exit_moving # exit move function
+
+drawing_jump:
+    lw $t0, x      # Set x to 10
+    lw $t1, y      # Set y to 20
+    
+    # Push the values of x and y onto the stack
+    addi $sp, $sp, -8   # Decrement stack pointer by 8 bytes
+    sw $t0, 0($sp)      # Store the value of x at the top of the stack
+    sw $t1, 4($sp)      # Store the value of y after x on the stack
+    
+    # Call the function with the values of x and y as arguments
+    lw $t0, position    # Load the value of position into $t0
+    beq $t0, $zero, draw_character_jump   # If position == 0, branch to character_gun
+    jal draw_character_jump     # Otherwise, jump to draw_character 
+    j exit_moving # exit move function
+    
 # Define the exit label
 exit:
     li $v0, 10      # Set system call 10 (exit)
@@ -1654,7 +1905,4380 @@ draw_pixel:
     lw $gp, 0($sp)       # restore the $gp value from the stack
     lw $ra, 4($sp)       # restore the return address from the stack
     addi $sp, $sp, 8     # deallocate space on the stack
-    jr $ra               # return to the caller
+    jr $ra 
+
+
+  
+draw_character_jumpright:
+    jal reset_character
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, 0($sp)      # Load the value of x from the top of the stack
+    lw $s1, 4($sp)      # Load the value of y after x on the stack
+    
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+    lw $t9, 0xffff0004	# get keypress from keyboard input
+    li $t8, 5323234            # load value to be stored into register $t0
+    sw $t8, 0xffff0004   # store value at memory address 0xffff0004
+    beq $9, 0x77, move_up	# 'w' pressed, move up
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+    lw $t9, 0xffff0004	# get keypress from keyboard input
+    li $t8, 5323234            # load value to be stored into register $t0
+    sw $t8, 0xffff0004   # store value at memory address 0xffff0004
+    beq $9, 0x77, move_up	# 'w' pressed, move up
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -1
+    addi $s0, $s0, 1 
+    addi $s0, $s0, 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    
+    
+addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    
+    jal reset_character
+    lw $t9, 0xffff0004	# get keypress from keyboard input
+    li $t8, 5323234            # load value to be stored into register $t0
+    sw $t8, 0xffff0004   # store value at memory address 0xffff0004
+    beq $9, 0x77, move_up	# 'w' pressed, move up
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -1
+    addi $s0, $s0, 1
+    addi $s0, $s0, 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    
+ 
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+    lw $t9, 0xffff0004	# get keypress from keyboard input
+    li $t8, 5323234            # load value to be stored into register $t0
+    sw $t8, 0xffff0004   # store value at memory address 0xffff0004
+    beq $9, 0x77, move_up	# 'w' pressed, move up
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -1
+    addi $s0, $s0, 1
+    addi $s0, $s0, 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel functio
+    
+
+
+addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+    lw $t9, 0xffff0004	# get keypress from keyboard input
+    li $t8, 5323234            # load value to be stored into register $t0
+    sw $t8, 0xffff0004   # store value at memory address 0xffff0004
+    beq $9, 0x77, move_up	# 'w' pressed, move up
+              # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -1
+    addi $s0, $s0, 1
+    addi $s0, $s0, 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+
+
+    
+    j jump3		# exit move function
+      
+draw_character_jump:
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, 0($sp)      # Load the value of x from the top of the stack
+    lw $s1, 4($sp)      # Load the value of y after x on the stack
+    
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+    lw $t9, 0xffff0004	# get keypress from keyboard input
+    li $t8, 5323234            # load value to be stored into register $t0
+    sw $t8, 0xffff0004   # store value at memory address 0xffff0004
+    beq $9, 0x77, move_up	# 'w' pressed, move up
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -1
+    addi $s0, $s0, -1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+    lw $t9, 0xffff0004	# get keypress from keyboard input
+    li $t8, 5323234            # load value to be stored into register $t0
+    sw $t8, 0xffff0004   # store value at memory address 0xffff0004
+    beq $9, 0x77, move_up	# 'w' pressed, move up
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -1
+    addi $s0, $s0, -1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    
+    
+addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    
+    jal reset_character
+    lw $t9, 0xffff0004	# get keypress from keyboard input
+    li $t8, 5323234            # load value to be stored into register $t0
+    sw $t8, 0xffff0004   # store value at memory address 0xffff0004
+    beq $9, 0x77, move_up	# 'w' pressed, move up
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -1
+    addi $s0, $s0, -1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    
+ 
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+    lw $t9, 0xffff0004	# get keypress from keyboard input
+    li $t8, 5323234            # load value to be stored into register $t0
+    sw $t8, 0xffff0004   # store value at memory address 0xffff0004
+    beq $9, 0x77, move_up	# 'w' pressed, move up
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -1
+    addi $s0, $s0, -1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel functio
+    
+
+
+addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+    lw $t9, 0xffff0004	# get keypress from keyboard input
+    li $t8, 5323234            # load value to be stored into register $t0
+    sw $t8, 0xffff0004   # store value at memory address 0xffff0004
+    beq $9, 0x77, move_up	# 'w' pressed, move up
+              # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -1
+    addi $s0, $s0, -1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+
+
+    
+    j jump2		# exit move function
+    
+jump2:
+
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, 1
+    addi $s1, $s1, -1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -6
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -6
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -6
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+
+ 
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -6
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+
+ 
+   
+ 
+ 
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -6
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+
+    lw $5, position
+    li $t7, 0
+    sw $t7, position
+    j exit_moving		# exit move 
+    
+    
+    
+jump3:
+
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, 1
+    addi $s1, $s1, -1
+    addi $s0, $s0, 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -6
+    addi $s0, $s0, 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -6
+    addi $s0, $s0, 1
+    addi $s0, $s0, 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -6
+    addi $s0, $s0, 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+
+ 
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -6
+    addi $s0, $s0, 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+
+ 
+   
+ 
+ 
+    addi $v0, $zero, 32     # syscall sleep
+    addi $a0, $zero, 50    # 200 ms (0.2 seconds)
+    syscall
+    jal reset_character
+       # Retrieve the input arguments from the stack
+    lw $t1, position      # Load the current value of y into $t1
+    	
+    addi $t1, $t1, -1     # Decrease the value of y by 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack	
+    sw $t1, position             # Store the new value of x
+    lw $s0, x      # Load the value of x from the top of the stack
+    lw $s1, y      # Load the value of y after x on the stack
+    addi $s1, $s1, -6
+    addi $s0, $s0, 1
+    sw $s0, x      # Load the value of x from the top of the stack
+    sw $s1, y      # Load the value of y after x on the stack
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, RED       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 4
+    addi $s1, $s1, 1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN      # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+        addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    
+    addi $s0, $s0, 5
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, HEALTH_GREEN       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, DARK_YELLOW       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 2
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    # increment the x coordinate by 1
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    addi $s0, $s0, -1
+    # call the draw_pixel function to draw a pixel at (332, 32) in red
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+    
+    addi $s0, $s0, 1
+    addi $s1, $s1, 1
+    lw $a2, BLACK       # load the value of the red color
+    move $a0, $s0           # move x coordinate to $a0
+    move $a1, $s1           # move y coordinate to $a1
+    jal draw_pixel          # call the draw_pixel function
+
+    lw $5, position
+    li $t7, 0
+    sw $t7, position
+    j exit_moving		# exit move function
+    
+    
+    
+
 draw_character:
        # Retrieve the input arguments from the stack
     lw $t1, position      # Load the current value of y into $t1
