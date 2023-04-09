@@ -308,13 +308,36 @@ move_up:
     j exit_moving       # If y is greater than or equal to 49, jump to exit_moving label
     
 moveup:
-    addi $t1, $t1, -7   # Increase the value of y by 1
+# Set initial position of the character
+lw $t0, x  # x coordinate
+lw $t1, y  # y coordinate
+
+# Jump up and come back down 5 times
+li $t2, 5   # Number of jumps to make
+li $t3, 0   # Loop counter
+loopj:
+    # Jump up
+    moveup2:
+        addi $t1, $t1, -7   # Increase the value of y by 7
+        sw $t0, x           # Store the new value of x
+        sw $t1, y           # Store the new value of y
+        j drawing_function  # Redraw the character on the screen
+        addi $v0, $zero, 32     # syscall sleep
+        addi $a0, $zero, 200    # 200 ms (0.2 seconds)
+        syscall
+
+    # Come back down
+    addi $t1, $t1, 7   # Decrease the value of y by 7
     sw $t0, x           # Store the new value of x
     sw $t1, y           # Store the new value of y
     j drawing_function  # Redraw the character on the screen
     addi $v0, $zero, 32     # syscall sleep
     addi $a0, $zero, 200    # 200 ms (0.2 seconds)
     syscall
+
+    # Increment loop counter
+    addi $t3, $t3, 1
+    blt $t3, $t2, loopj  # Repeat loop if loop counter < number of jumps
     j exit_moving       # exit move function
 
 move_down:
