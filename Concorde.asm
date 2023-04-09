@@ -55,6 +55,7 @@ gx1: .word 49
 gy1: .word 55
 x: .word 5
 y: .word 49
+fix: .word 0
 health_counter1: .word 10
 health_counter2: .word 20
 health_timer: .word 0
@@ -707,7 +708,10 @@ move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
 addi $s0, $s0, -1
 
-j coin
+lw $t8, fix          # Load the value of fiux into register $t0
+beq $t8, $zero, coin  # If fiux equals 0, jump to coin
+j coined              # Otherwise, jump to coined
+
 
 enemy2:
 
@@ -1338,36 +1342,8 @@ addi $s0, $s0, -1
 move $a0, $s0           # move x coordinate to $a0
 move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, 4
-
 addi $s1, $s1, 1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-
+addi $s0, $s0, 1
 move $a0, $s0           # move x coordinate to $a0
 move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
@@ -1376,8 +1352,7 @@ move $a0, $s0           # move x coordinate to $a0
 move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
 addi $s1, $s1, 1
-
-addi $s0, $s0, 5
+addi $s0, $s0, 1
 move $a0, $s0           # move x coordinate to $a0
 move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
@@ -1385,26 +1360,8 @@ addi $s0, $s0, -1
 move $a0, $s0           # move x coordinate to $a0
 move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-
 addi $s1, $s1, 1
-
-addi $s0, $s0, 5
+addi $s0, $s0, 1
 move $a0, $s0           # move x coordinate to $a0
 move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
@@ -1412,42 +1369,74 @@ addi $s0, $s0, -1
 move $a0, $s0           # move x coordinate to $a0
 move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-
 addi $s1, $s1, 1
+addi $s0, $s0, 1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
 
-addi $s0, $s0, 4
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
-addi $s0, $s0, -1
-move $a0, $s0           # move x coordinate to $a0
-move $a1, $s1           # move y coordinate to $a1
-jal draw_pixel          # call the draw_pixel function
 j slow_down
+
+
+coined:
+
+# Retrieve the input arguments from the stack
+lw $s0, cx1      # Load the value of x from the top of the stack
+lw $s1, cy1      # Load the value of y after x on the stack
+
+# draw the left half of the heart
+lw $a2, YELLOW       # load the value of the red color
+
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s1, $s1, 1
+addi $s0, $s0, 1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s1, $s1, 1
+addi $s0, $s0, 1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s1, $s1, 1
+addi $s0, $s0, 1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s1, $s1, 1
+addi $s0, $s0, 1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+addi $s0, $s0, -1
+move $a0, $s0           # move x coordinate to $a0
+move $a1, $s1           # move y coordinate to $a1
+jal draw_pixel          # call the draw_pixel function
+
+j slow_down
+
 
 
 draw_live1:
@@ -1813,8 +1802,10 @@ exit_moving:
 	lw $t6, health_timer
 	lw $a1, x
 	lw $s0, dex1
+	lw $s1, cx1
 	beq $s0, $a1, exit_win
-	lw $t7, health_counter1
+	beq $s1, $a1, exit_win2
+	li $t7, 10
 	addi $t6, $t6, 1
 	sw $t6, health_timer
 	beq $t6, $t7, decrease_hx1
@@ -1834,13 +1825,43 @@ exit_moving:
 	lw $t0, level
 	j health_bar
 	j loop			# loop back to beginning
-    
+
 exit_win:
 # Sleep for 66 ms so frame rate is about 15
 	lw $t6, health_timer
 	lw $t7, health_counter1
 	li $t6, 20
 	sw $t6, health_counter1
+
+	li $v0, 1           # Set the system call code for printing an integer value
+	move $a0, $t6       # Move the value of $t6 into the argument register $a0
+	syscall             # Call the system function to print the integer value in $a0
+
+	sw $t6, health_timer
+	beq $t7, $t6, decrease_hx1
+	lw $t5, gx1    # load the value of gravity into register $t0
+	lw $t4, x    # load the value of gravity into register $t0
+	# Set key_pressed flag to 1
+	beq $t5, $t4, draw_lost
+	# Set $t0 to space key
+	addi $t0, $zero, 0x20
+	sw $zero, key_pressed	# reset key_pressed flag to 0
+	lw $t4, hx1
+	lw $t5, health_timer
+	addi $t5, $t5, 1
+        addi $t2, $zero, -60   # Load the value -60 into $t2
+	beq $t4, $t2, draw_lost   # If hx1 equals -60, jump to draw_lost
+	sw $t4, hx1
+	lw $t0, level
+	j health_bar
+	j loop			# loop back to beginning
+	 
+exit_win2:
+# Sleep for 66 ms so frame rate is about 15
+	lw $t6, health_timer
+	li $t7, 0
+	addi $t6, $t6, -10
+	sw $t7, health_timer
 
 	li $v0, 1           # Set the system call code for printing an integer value
 	move $a0, $t6       # Move the value of $t6 into the argument register $a0
