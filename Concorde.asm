@@ -49,19 +49,20 @@ eax1: .word 10
 eay1: .word 34
 dx1: .word 17
 dy1: .word 21
-cx1: .word 5
-cy1: .word 15
-gx1: .word 55
-gy1: .word 45
+cx1: .word 30
+cy1: .word 49
+gx1: .word 49
+gy1: .word 55
 x: .word 5
 y: .word 49
 health_timer: .word 0
-dex1: .word 50
-dey1: .word 46
+dex1: .word 42
+dey1: .word 49
 gravity: .word 0
 position: .word 1
 level: .word 1
 speed: .word 0
+health_condition: .word 0
 speed_dec: .word 0
 game_over:             .word
 
@@ -218,12 +219,9 @@ loop:
 	# Check if key has been pressed already
 	lw $t1, key_pressed
 	beq $t1, 1, loop	# if key has been pressed, loop again
-	lw $t5, gravity    # load the value of gravity into register $t0
 	li $t6, 0          # load the value 1 into register $t1
-	jal handle_gravity  # if $t0 (gravity) equals $t1 (1), jump to handle_gravity\
-	# Set key_pressed flag to 1
 	sw $t1, key_pressed
-	# Load value of position into register $t0
+	# Load value of positioninto register $t0
         lw $t2, position
 	# If $t0 is not equal to 1, jump to reset_character_gun
         lw $a2, x       # load the value of the red color
@@ -707,7 +705,7 @@ move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
 addi $s0, $s0, -1
 
-j loop
+j coin
 
 enemy2:
 
@@ -1447,7 +1445,7 @@ addi $s0, $s0, -1
 move $a0, $s0           # move x coordinate to $a0
 move $a1, $s1           # move y coordinate to $a1
 jal draw_pixel          # call the draw_pixel function
-j loop
+j slow_down
 
 
 draw_live1:
@@ -1811,10 +1809,17 @@ exit_moving:
 	addi $a0, $zero, 50	# 66 ms
 	syscall
 	lw $t6, health_timer
+	lw $a1, x
+	lw $s0, dex1
+	beq $a1, $s0, exit_win
 	li $t7, 10
 	addi $t6, $t6, 1
 	sw $t6, health_timer
 	beq $t6, $t7, decrease_hx1
+	lw $t5, gx1    # load the value of gravity into register $t0
+	lw $t4, x    # load the value of gravity into register $t0
+	# Set key_pressed flag to 1
+	beq $t5, $t4, draw_lost
 	# Set $t0 to space key
 	addi $t0, $zero, 0x20
 	sw $zero, key_pressed	# reset key_pressed flag to 0
@@ -1827,7 +1832,31 @@ exit_moving:
 	lw $t0, level
 	j health_bar
 	j loop			# loop back to beginning
-	
+    
+exit_win:
+# Sleep for 66 ms so frame rate is about 15
+	lw $t6, health_timer
+	li $t7, 1000
+	addi $t6, $t6, 1
+	sw $t6, health_timer
+	beq $t7, $t6, decrease_hx1
+	lw $t5, gx1    # load the value of gravity into register $t0
+	lw $t4, x    # load the value of gravity into register $t0
+	# Set key_pressed flag to 1
+	beq $t5, $t4, draw_lost
+	# Set $t0 to space key
+	addi $t0, $zero, 0x20
+	sw $zero, key_pressed	# reset key_pressed flag to 0
+	lw $t4, hx1
+	lw $t5, health_timer
+	addi $t5, $t5, 1
+        addi $t2, $zero, -60   # Load the value -60 into $t2
+	beq $t4, $t2, draw_lost   # If hx1 equals -60, jump to draw_lost
+	sw $t4, hx1
+	lw $t0, level
+	j health_bar
+	j loop			# loop back to beginning
+
 decrease_hx1:
 	lw $t6, health_timer
 	li $t7, 0
