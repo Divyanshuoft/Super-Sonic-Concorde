@@ -1797,7 +1797,7 @@ drawing_jumpright:
     
     # Call the function with the values of x and y as arguments
     lw $t0, position    # Load the value of position into $t0
-    beq $t0, $zero, draw_character_gun   # If position == 0, branch to character_gun
+    beq $t0, $zero, draw_character_jumpright   # If position == 0, branch to character_gun
     jal draw_character_jumpright    # Otherwise, jump to draw_character 
     j exit_moving # exit move function
 
@@ -1812,7 +1812,7 @@ drawing_jump:
     
     # Call the function with the values of x and y as arguments
     lw $t0, position    # Load the value of position into $t0
-    beq $t0, $zero, draw_character_gun   # If position == 0, branch to character_gun
+    beq $t0, $zero, draw_character_jump   # If position == 0, branch to character_gun
     jal draw_character_jump     # Otherwise, jump to draw_character 
     j exit_moving # exit move function
     
