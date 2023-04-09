@@ -55,6 +55,8 @@ gx1: .word 49
 gy1: .word 55
 x: .word 5
 y: .word 49
+health_counter1: .word 10
+health_counter2: .word 20
 health_timer: .word 0
 dex1: .word 42
 dey1: .word 49
@@ -1811,8 +1813,8 @@ exit_moving:
 	lw $t6, health_timer
 	lw $a1, x
 	lw $s0, dex1
-	beq $a1, $s0, exit_win
-	li $t7, 10
+	beq $s0, $a1, exit_win
+	lw $t7, health_counter1
 	addi $t6, $t6, 1
 	sw $t6, health_timer
 	beq $t6, $t7, decrease_hx1
@@ -1836,8 +1838,14 @@ exit_moving:
 exit_win:
 # Sleep for 66 ms so frame rate is about 15
 	lw $t6, health_timer
-	li $t7, 1000
-	addi $t6, $t6, 1
+	lw $t7, health_counter1
+	li $t6, 20
+	sw $t6, health_counter1
+
+	li $v0, 1           # Set the system call code for printing an integer value
+	move $a0, $t6       # Move the value of $t6 into the argument register $a0
+	syscall             # Call the system function to print the integer value in $a0
+
 	sw $t6, health_timer
 	beq $t7, $t6, decrease_hx1
 	lw $t5, gx1    # load the value of gravity into register $t0
