@@ -17,15 +17,15 @@ input:  .space 1
 frameBuffer:    .space  0x200    # 64 wide x 64 high pixels
 HEALTH_GREEN:    .word   0x00FF00
 BLACK:           .word   0x00000000
-RED:             .word   0xFF0000
 LIGHT_BLUE:      .word   0xADD8E6
 DARK_BLUE:       .word   0x00008B
 PURPLE:          .word   0x800080
+YELLOW: .word 0xFFFF00
+RED:             .word   0xFF0000
 BROWN:           .word   0xA52A2A
 LIGHT_PURPLE:    .word   0x800080
 LIGHT_YELLOW:    .word   0xFF0000
 LIGHT_GREEN:     .word   0x00008B
-YELLOW: .word 0xFFFF00
 DARK_YELLOW: .word 0x9B870C
 SKIN_COLOR: .word 0xFFDAB9
 hx1: .word 2
@@ -222,18 +222,20 @@ loop:
 	sw $t1, key_pressed
 	# Load value of positioninto register $t0
         lw $t2, position
+	
 	# If $t0 is not equal to 1, jump to reset_character_gun
-        lw $a2, x       # load the value of the red color
+        lw $a1, x
+        lw $a2, y
         lw $t9, hs
         li $t8, -50
 	bgt $a2, 63, adapter
         beq $t0, 0x70, draw_game3   # 'p' pressed, go to draw_game
-        beq $t0, 0x71, move_up2   # 'q' pressed, go to move_up2
-  	beq $t0, 0x78, move_down2 # 'x' pressed, go to move_down2
-	beq $t0, 0x77, move_up	# 'w' pressed, move up
-	beq $t0, 0x73, move_down	# 's' pressed, move down
+        beq $t0, 0x77, move_up2   # 'q' pressed, go to move_up2
+  	beq $t0, 0x73, move_down2 # 'x' pressed, go to move_down2
 	beq $t0, 0x64, move_right	# 'd' pressed, move right
 	beq $t0, 0x61, move_left	# 'a' pressed, move leftww
+	beq $t0, 0x65, move_down	# 's' pressed, move down
+	beq $t0, 0x71, move_up	# 'w' pressed, move up
 	j drawing_function
 	# Set $t0 to space key
 	addi $t0, $zero, 0x20
@@ -1988,6 +1990,11 @@ exit_moving:
 	addi $v0, $zero, 32	# syscall sleep
 	addi $a0, $zero, 50	# 66 ms
 	syscall
+       
+
+	# Check pixel color
+	# If color is YELLOW, exit with win+
+	
 
 	lw $t6, health_timer
 	lw $a1, x
@@ -10675,8 +10682,9 @@ loop_game32:        bge $t2, $t3, health_bar2
             beq $t7, 0x65, exit     # exit loop if 'e' was pressed
             j loop_game32
             
-           
+         
 draw_game:        li $t0, BASE_ADDRESS        # $t0 stores base address
+    beq $t7, 0x65, draw_gameh     # exit loop if 'e' was pressed
     la $a0, tone
     lw $a1, duration2
     li $v0, 33
@@ -10685,7 +10693,34 @@ draw_game:        li $t0, BASE_ADDRESS        # $t0 stores base address
             li $t2, 0            # $t2 stores counter
             li $t3, NUM_UNITS        # $t3 stores total units
 
-loop_game:        bge $t2, $t3, health_bar2
+loop_game:        bge $t2, $t3, draw_lost
+    lw $t8, hx1      # Load the value of x after y on the stack
+    li $t6, 2
+    sw $t6, hx1
+	    lw $a1, x
+	    lw $a2, y
+	    li $t8, 5      # load the value 5 into $t0
+	    sw $t8, x      # store the value of $t0 into memory location x
+
+	    li $t9, 49     # load the value 49 into $t1
+	    sw $t9, y      # store the value of $t1 into memory location y
+            sll $t4, $t2, 2            # calculate offset
+            add $t5, $t1, $t4        # $t5 stores address of color for current unit
+            lw $t5, 0($t5)            # $t5 stores color of current unit
+            add $t4, $t4, $t0        # $t4 stores address of current unit
+            sw $t5, 0($t4)            # paint unit black
+            addi $t2, $t2, 1        # increment counter
+            lw $t7, 0xffff0004           # get keypress from keyboard input
+            beq $t7, 0x61, draw_gameh     # exit loop if 'e' was pressed
+            beq $t7, 0x65,  draw_lost     # exit loop if 'e' was pressed
+            j loop_game
+           
+draw_gameh:        li $t0, BASE_ADDRESS        # $t0 stores base address
+            la $t1, background        # $t1 stores address of game_over
+            li $t2, 0            # $t2 stores counter
+            li $t3, NUM_UNITS        # $t3 stores total units
+
+loop_gameb:        bge $t2, $t3, health_bar2
     lw $t8, hx1      # Load the value of x after y on the stack
     li $t6, 2
     sw $t6, hx1
@@ -10704,8 +10739,7 @@ loop_game:        bge $t2, $t3, health_bar2
             addi $t2, $t2, 1        # increment counter
             lw $t7, 0xffff0004           # get keypress from keyboard input
             beq $t7, 0x65, exit     # exit loop if 'e' was pressed
-            j loop_game
-
+            j loop_gameb
             
 draw_lost:        li $t0, BASE_ADDRESS        # $t0 stores base address
             la $t1, lost        # $t1 stores address of game_over
