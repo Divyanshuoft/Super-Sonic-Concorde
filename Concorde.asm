@@ -1,3 +1,42 @@
+#####################################################################
+#
+# CSCB58 Winter 2023 Assembly Final Project
+# University of Toronto, Scarborough
+#
+# Student: Divyansh Kachchhava, 1008378462,kachchha, divyansh.kachchhava@mail.utoronto.ca
+#
+# Bitmap Display Configuration:
+# - Unit width in pixels: 4
+# - Unit height in pixels: 4
+# - Display width in pixels: 256
+# - Display height in pixels: 256
+# - Base Address for Display: 0x10008000 ($gp)
+#
+# Which milestones have been reached in this submission?
+# (See the assignment handout for descriptions of the milestones)
+# - 1, 2, 3
+#
+# Which approved features have been implemented for milestone 3?
+# (See the assignment handout for the list of additional features)
+# - Health/score
+# - Fail condition
+# - Win condition
+# - Different levels
+# - Pick-up effects
+# - Animated sprites
+# - Start menu
+#
+# Link to video demonstration for final submission:
+# - (insert YouTube / MyMedia / other URL here). Make sure we can view it!
+#
+# Are you OK with us sharing the video with people outside course staff?
+# - yes / no / yes, and please share this project github link as well!
+#
+# Any additional information that the TA needs to know:
+# - (write here, if any)
+#
+#####################################################################
+
 .eqv    BASE_ADDRESS    0x10008000
 .eqv    NUM_UNITS    4096
 
@@ -51,8 +90,8 @@ dx1: .word 17
 dy1: .word 21
 cx1: .word 30
 cy1: .word 49
-gx1: .word 49
-gy1: .word 49
+gx1: .word 61
+gy1: .word 31
 x: .word 5
 y: .word 49
 fix: .word 0
@@ -223,12 +262,14 @@ loop:
 	# Load value of positioninto register $t0
         lw $t2, position
 	
+        lw $t3, x
+        lw $t4, gx1
 	# If $t0 is not equal to 1, jump to reset_character_gun
         lw $a1, x
-        lw $a2, y
-        lw $t9, hs
-        li $t8, -50
-	bgt $a2, 63, adapter
+        lw $t9, y
+        addi $t3, $t3, 6
+        beq $a1, 63, adapter
+	beq $t3, $t4, go_lost
         beq $t0, 0x70, draw_game3   # 'p' pressed, go to draw_game
         beq $t0, 0x77, move_up2   # 'q' pressed, go to move_up2
   	beq $t0, 0x73, move_down2 # 'x' pressed, go to move_down2
@@ -241,7 +282,22 @@ loop:
 	addi $t0, $zero, 0x20
 	
 	j loop			# otherwise, loop again
-	
+
+go_lost:
+	lw $t3, y
+        lw $t4, gy1
+        beq $t3, $t4,draw_lost
+        beq $t3, 63, adapter
+        beq $t0, 0x70, draw_game3   # 'p' pressed, go to draw_game
+        beq $t0, 0x77, move_up2   # 'q' pressed, go to move_up2
+  	beq $t0, 0x73, move_down2 # 'x' pressed, go to move_down2
+	beq $t0, 0x64, move_right	# 'd' pressed, move right
+	beq $t0, 0x61, move_left	# 'a' pressed, move leftww
+	beq $t0, 0x65, move_down	# 's' pressed, move down
+	beq $t0, 0x71, move_up	# 'w' pressed, move up
+	j drawing_function
+        j loop
+        	
 handle_gravity:
 	jr $ra
 	
@@ -2009,7 +2065,11 @@ exit_moving:
 	lw $t5, gx1    # load the value of gravity into register $t0
 	lw $t4, x    # load the value of gravity into regisdter $t0
 	# Set key_pressed flag to 1
-
+	addi $t4, $t4, 6
+        lw $a0, cx1
+        lw $a1, dex1
+        beq $t4, $a0, exit_win2
+	beq $t4, $a1, exit_win
 	# Set $t0 to space key
 	addi $t0, $zero, 0x20
 	sw $zero, key_pressed	# reset key_pressed flag to 0
@@ -10823,8 +10883,3 @@ loop_game3:        bge $t2, $t3, health_bar2
             j loop_game3
             
 exit_game_over:        
-
-    li $v0, 4                   # syscall to print string
-    la $a0, hello_world         # load address of the string
-    syscall
-    j exit
